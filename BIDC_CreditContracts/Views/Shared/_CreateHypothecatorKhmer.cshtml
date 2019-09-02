@@ -1,0 +1,68 @@
+﻿
+@model IEnumerable<BIDC_CreditContracts.Models.HypothecatorKhmer>
+
+<div id="ListHypothecator">
+    @if (ViewBag.Error != null)
+    {
+        <b class="alert-danger">@ViewBag.Error</b>
+    }
+    <h3>List Hypothecator</h3>
+    @foreach (var item in Model)
+    {
+
+        <fieldset>
+            <table class="table">
+                <tr>
+                    <td>@Html.LabelFor(modelItem => item.HypothecatorName)</td>
+                    <td>@Html.DisplayFor(modelItem => item.HypothecatorName)</td>
+                    <td>@Html.LabelFor(modelItem => item.HypothecatorSex)</td>
+                    <td>@Html.DisplayFor(modelItem => item.HypothecatorSex)</td>
+
+                </tr>
+                <tr>
+                    <td>@Html.LabelFor(modelItem => item.HypothecatorBirthDate)</td>
+                    <td>@Html.DisplayFor(modelItem => item.HypothecatorBirthDate)</td>
+                    <td>@Html.LabelFor(modelItem => item.HypothecatorNationality)</td>
+                    <td>@Html.DisplayFor(modelItem => item.HypothecatorNationality)</td>
+
+                </tr>
+                <tr>
+                    <td>@Html.LabelFor(modelItem => item.HypothecatorAddress)</td>
+                    <td>@Html.DisplayFor(modelItem => item.HypothecatorAddress)</td>
+                    <td>@Html.LabelFor(modelItem => item.HypothecatorVillage)</td>
+                    <td>@Html.DisplayFor(modelItem => item.HypothecatorVillage)</td>
+                </tr>
+                <tr>
+                    <td>@Html.LabelFor(modelItem => item.HypothecatorSangkat)</td>
+                    <td>@Html.DisplayFor(modelItem => item.HypothecatorSangkat)</td>
+                    <td>@Html.LabelFor(modelItem => item.HypothecatorKhan)</td>
+                    <td>@Html.DisplayFor(modelItem => item.HypothecatorKhan)</td>
+                </tr>
+                <tr>
+                    <td>@Html.LabelFor(modelItem => item.HypothecatorCapital)</td>
+                    <td>@Html.DisplayFor(modelItem => item.HypothecatorCapital)</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+
+                <tr>
+                    <td colspan="4" align="center">
+                        @Ajax.ActionLink("Delete", "DeleteKhmer", "Hypothecators",
+                        new { hypothecatorName = item.HypothecatorName, hypothecatorNationality = item.HypothecatorNationality, isSaved = item.isSaved },
+                        new AjaxOptions
+                        {
+                            HttpMethod = "GET",
+                            InsertionMode = InsertionMode.Replace,
+                            UpdateTargetId = "ListHypothecator"
+                        },
+                        new { @class = "btn btn-danger" })
+                    </td>
+                </tr>
+            </table>
+        </fieldset>
+    }
+</div>
+
+
+
+

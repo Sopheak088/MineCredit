@@ -1,0 +1,141 @@
+﻿@model IEnumerable<BIDC_CreditContracts.Models.Decide>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.DecideCode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CreditProposalReport)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CreditProposalDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cif)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CustomerName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CustomerAddress)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Representative)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LoanAmount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OutstandingLoan)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OutstandingDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Currency)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NewLoanAmount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TypeOfLoan)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Purpose)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.InterestRate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProcessingFee)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RepaymentMethod)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DisbursementTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Condition)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.DecideCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreditProposalReport)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreditProposalDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cif)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CustomerName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CustomerAddress)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Representative)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LoanAmount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OutstandingLoan)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OutstandingDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Currency)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NewLoanAmount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TypeOfLoan)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Purpose)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.InterestRate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProcessingFee)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RepaymentMethod)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DisbursementTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Condition)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>

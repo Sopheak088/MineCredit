@@ -1,0 +1,185 @@
+﻿html {
+  font-family: sans-serif;
+  -webkit-text-size-adjust: 100%;
+      -ms-text-size-adjust: 100%;
+  background: url("./themes/base/images/bgpromotion.jpg") repeat scroll 0 0 #F5F6F7;
+}
+
+body {
+  width: 80%;
+  margin: 10px auto 0px;
+}
+
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.428571429;
+  color: #2140BF;
+}
+
+#new-banner
+{
+    width: 30%;
+    height: 120px;
+    background-color: Red;
+    background: url("./themes/base/images/banner_KH.jpg") no-repeat scroll transparent;
+    border:hidden;
+}
+
+.Three-Dee{
+    text-align:left;
+    font-family: Garamond, serif;
+    line-height: 1em;
+    color: #FF0000;
+    font-weight:bold;
+    font-size: 54px;
+    text-shadow:0px 0px 0 rgb(72,85,169),1px 1px 0 rgb(59,72,156),2px 2px 0 rgb(47,60,144),3px 3px 0 rgb(34,47,131),4px 4px 0 rgb(22,35,119),5px 5px 0 rgb(9,22,106), 6px 6px 0 rgb(-3,10,94),7px 7px 6px rgba(0,0,0,0.65),7px 7px 1px rgba(0,0,0,0.5),0px 0px 6px rgba(0,0,0,.2);
+}
+ 
+#navigation
+{
+    display: block;
+    padding: 0px;
+    position: relative;
+    top: 3px;
+    left: 3px;
+}
+
+
+#navigation-bar
+{
+     background: url("./themes/base/images/bg-navigation-1.jpg") repeat-x scroll right 0 transparent;
+    color: #2140BF;
+    display: block;
+    height: 40px;
+    margin: -3px 0 0;
+    text-align: right;
+    width: 100%;
+}
+
+#navigation-bar #title
+{
+    position: relative;
+    right: 20px;
+    top: -20px;
+}
+
+/* TAB MENU   
+----------------------------------------------------------*/
+ul#menu {
+   list-style-type: none;
+    margin: 0;
+    overflow: hidden;
+    padding: 0;
+    /*font-family: arial;*/
+}
+
+ul#menu li {
+    float: left;
+}
+
+
+ul#menu li#greeting {
+    padding: 10px 20px;
+    font-weight: bold;
+    text-decoration: none;
+    line-height: 2.8em;
+    color: #fff;
+}
+
+
+ul#menu li a:link, ul#menu li a:visited {
+    background: url("./themes/base/images/bg-menu.jpg") repeat scroll right 0 transparent;
+    color: white;
+    display: block;
+    font-weight: bold;
+    padding: 6px;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    border-right: 1px solid buttonshadow;
+}
+
+ul#menu li a:hover {
+    color: yellow;
+    background: none;
+    background-color: #1761DC;
+}
+
+ul#menu li a:active {
+    color: white;
+    background: none;
+    background-color: #1761DC;
+    text-decoration: none;
+}
+
+ul#menu li.selected a {
+    color: white;
+    background: none;
+    background-color: #1761DC;
+}
+
+/*------------------------------------------------*/
+
+#main-body
+{
+    background: url("./themes/base/images/bg-menu-4.jpg") repeat-x scroll 0 0 #F5F6F7;
+    border-radius: 0px 0px 4px 4px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
+    padding: 15px 15px 0;
+    background-color: #0075DB;
+}
+
+#main 
+{
+    display: block;
+    padding: 5px 25px 30px;
+    min-height: 400px;
+}
+
+#maintwo 
+{
+    display: block;
+    padding: 5px 25px 30px;
+    min-height: 400px;
+}
+
+.block-content
+{
+    background: none repeat scroll 0 0 #FFFFFF;
+    border-radius: 4px 4px 4px 4px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
+}
+
+footer, 
+#footer 
+{
+    color: white;
+    font-size: 11px;
+    border-radius: 0 0 4px 4px;
+    line-height: normal;
+    margin: 0 0 30px;
+    padding: 10px 0;
+    text-align: center;
+}
+
+fieldset {
+    border: 1px solid #ddd;
+    padding: 0 1.4em 1.4em 1.4em;
+    margin: 0 0 1.5em 0;
+}
+
+legend {
+  display: block;
+  padding: 0;
+  margin-bottom: 6px;
+  font-size: 16px;
+  font-weight:bold;
+  line-height: inherit;
+  border-bottom: 1px none #e5e5e5;
+}
+
+label {
+  display: inline-block;
+  margin-bottom: 5px;
+}

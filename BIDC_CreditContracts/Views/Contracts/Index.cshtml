@@ -1,0 +1,92 @@
+﻿@model IEnumerable<BIDC_CreditContracts.Models.Contract>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Branch.BranchName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TypeOfContract.TypeName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ContractNo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ContractDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CompanyName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TypeOfCompany)
+        </th>
+        
+        <th>
+            @*@Html.DisplayNameFor(model => model.CompanyDirector)*@
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LoanAmount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.InterestRate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Term)
+        </th>
+        
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Branch.BranchName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TypeOfContract.TypeName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ContractNo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ContractDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CompanyName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TypeOfCompany)
+        </td>
+        
+        <td>
+            @*@Html.DisplayFor(modelItem => item.CompanyDirector)*@
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LoanAmount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.InterestRate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Term)
+        </td>
+        
+        <td>
+            @Html.ActionLink("Export", "GenerateContract", new { id = item.ContractID }) |
+            @Html.ActionLink("Edit", "Edit", new { id=item.ContractID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ContractID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ContractID })
+        </td>
+    </tr>
+}
+
+</table>

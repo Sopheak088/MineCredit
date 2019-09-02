@@ -1,0 +1,124 @@
+﻿@model IEnumerable<BIDC_CreditContracts.Models.HypothecContract>
+@functions
+{
+    public string GenerateLinks(dynamic item)
+    {
+        MembershipUser user = Membership.GetUser();
+        string[] roles = Roles.GetRolesForUser(user.UserName);
+        string result = string.Empty;
+        if (roles.Contains("Officer") )
+        {
+            result += Html.ActionLink(" ", "GenerateHypothec", "HypothecContracts",
+                                        new
+                                        {
+                                            id = item.ID
+                                        },
+                                        new { @class = "print-image-link", @title = "Print", @target = "_blank" }
+
+                                        ).ToString();
+
+            result += "&nbsp&nbsp&nbsp";
+            result += Html.ActionLink(" ", "GenerateAnnexHypothec", "HypothecContracts",
+                                        new
+                                        {
+                                            id = item.ID
+                                        },
+                                        new { @class = "print2-image-link", @title = "PrintGeneral", @target = "_blank" }
+
+                                        ).ToString();
+
+            result += "&nbsp&nbsp&nbsp";
+            result += Html.ActionLink(" ", "Edit", "HypothecContracts",
+                                   new
+                                   {
+                                       id = item.ID
+                                   },
+                                   new { @class = "edit-image-link", @title = "Edit" }
+                                   ).ToString();
+
+            result += "&nbsp&nbsp&nbsp";
+            result += Html.ActionLink(" ", "Delete", "HypothecContracts",
+                                   new
+                                   {
+                                       id = item.ID
+                                   },
+                                   new { @class = "delete-image-link", @title = "Delete" }
+                                   ).ToString();
+
+        }
+
+        if (roles.Contains("Admin") || roles.Contains("Deputy"))
+        {
+            result += Html.ActionLink(" ", "GenerateHypothec", "HypothecContracts",
+                                        new
+                                        {
+                                            id = item.ID
+                                        },
+                                        new { @class = "print-image-link dialog", @title = "Print", @target = "_blank" }
+                                        ).ToString();
+
+            result += "&nbsp&nbsp&nbsp";
+            result += Html.ActionLink(" ", "GenerateAnnexHypothec", "HypothecContracts",
+                                        new
+                                        {
+                                            id = item.ID
+                                        },
+                                        new { @class = "print2-image-link", @title = "PrintGeneral", @target = "_blank" }
+
+                                        ).ToString();
+
+            result += "&nbsp&nbsp&nbsp";
+            //result += Html.ActionLink(" ", "Details", "Contracts",
+            //                       new
+            //                       {
+            //                           id = item.ContractID
+            //                       },
+            //                       new { @class = "details-image-link", @title = "Details" }
+            //                       ).ToString();
+
+            //result += "&nbsp&nbsp&nbsp";
+
+            result += Html.ActionLink(" ", "Edit", "HypothecContracts",
+                                   new
+                                   {
+                                       id = item.ID
+                                   },
+                                   new { @class = "edit-image-link", @title = "Edit" }
+                                   ).ToString();
+
+            result += "&nbsp&nbsp&nbsp";
+
+            result += Html.ActionLink(" ", "Delete", "HypothecContracts",
+                                   new
+                                   {
+                                       id = item.ID
+                                   },
+                                   new { @class = "delete-image-link", @title = "Delete" }
+                                   ).ToString();
+        }
+
+        return result;
+    }
+}
+
+@{
+    var grid = new WebGrid(Model, rowsPerPage: 15, fieldNamePrefix: "sortSBs", pageFieldName: "pageSBs");
+    @grid.GetHtml(
+        tableStyle: "webgrid",
+        headerStyle: "webgrid-header",
+        footerStyle: "webgrid-footer",
+        alternatingRowStyle: "webgrid-alternating-row",
+        selectedRowStyle: "webgrid-selected-row",
+        rowStyle: "webgrid-row-style",
+        columns: grid.Columns(
+                        grid.Column(columnName: "ID", header: "No."),
+                        grid.Column(columnName: "ContractNo", header: "Hypothec contract"),
+                        grid.Column(columnName: "CreditContract", header: "Loan contract"),
+                        grid.Column(columnName: "Cif", header: "CIF"),
+                        grid.Column(columnName: "CompanyName", header: "Company"),
+                        grid.Column(columnName: "BranchName", header: "Branch"),
+                        grid.Column(columnName: null, header: "Actions", format: (item) => new HtmlString(@GenerateLinks(item)), style: "center-column")
+        )
+    )
+}
+

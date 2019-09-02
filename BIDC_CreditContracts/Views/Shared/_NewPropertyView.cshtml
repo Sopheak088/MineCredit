@@ -1,0 +1,59 @@
+﻿@model IEnumerable<BIDC_CreditContracts.Models.PropertyView>
+
+<div id="ListNewProperty">
+    @if (ViewBag.Error != null)
+    {
+        <b class="alert-danger">@ViewBag.Error</b>
+    }
+    <h3>List Property</h3>
+    @foreach (var item in Model)
+    {
+
+        <fieldset>
+            <table class="table">
+                <tr>
+                    <td>Type of property:</td>
+                    <td>@Html.DisplayFor(modelItem => item.TypeOfProperty)</td>
+                    <td>Ownership:</td>
+                    <td>@Html.DisplayFor(modelItem => item.Ownership)</td>
+
+                </tr>
+                <tr>
+                    <td>Pacel number:</td>
+                    <td>@Html.DisplayFor(modelItem => item.Pacelnumber)</td>
+                    <td>Title number:</td>
+                    <td>@Html.DisplayFor(modelItem => item.TitleNumber)</td>
+
+                </tr>
+                <tr>
+                    <td>Total Size:</td>
+                    <td>@Html.DisplayFor(modelItem => item.TotalSize)</td>
+                    <td>Location:</td>
+                    <td>@Html.DisplayFor(modelItem => item.Location)</td>
+                </tr>
+                <tr>
+                    <td>Collateral</td>
+                    <td>@Html.DisplayFor(modelItem=>item.CollateralFor)</td>
+                </tr>
+
+                <tr>
+                    <td colspan="4" align="center">
+                        @Ajax.ActionLink("Delete", "DeleteNew", "Properties",
+                        new { pacelNumber = item.Pacelnumber, titleNumber = item.TitleNumber, isSaved = item.isSaved },
+                        new AjaxOptions
+                        {
+                            HttpMethod = "GET",
+                            InsertionMode = InsertionMode.Replace,
+                            UpdateTargetId = "ListNewProperty"
+                        },
+                        new { @class = "btn btn-danger" })
+                    </td>
+                </tr>
+            </table>
+        </fieldset>
+    }
+</div>
+
+
+
+

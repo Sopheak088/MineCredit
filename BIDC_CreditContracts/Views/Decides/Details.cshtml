@@ -1,0 +1,170 @@
+﻿@model BIDC_CreditContracts.Models.Decide
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Decide</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DecideCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DecideCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreditProposalReport)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreditProposalReport)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreditProposalDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreditProposalDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cif)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cif)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CustomerName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CustomerName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CustomerAddress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CustomerAddress)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Representative)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Representative)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LoanAmount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LoanAmount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OutstandingLoan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OutstandingLoan)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OutstandingDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OutstandingDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Currency)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Currency)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NewLoanAmount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NewLoanAmount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TypeOfLoan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TypeOfLoan)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Purpose)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Purpose)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.InterestRate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InterestRate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProcessingFee)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProcessingFee)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RepaymentMethod)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RepaymentMethod)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DisbursementTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DisbursementTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Condition)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Condition)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

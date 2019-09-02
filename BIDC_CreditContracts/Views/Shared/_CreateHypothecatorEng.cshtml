@@ -1,0 +1,67 @@
+﻿@model IEnumerable<BIDC_CreditContracts.Models.HypothecatorEng>
+
+<div id="ListHypothecator">
+    @if (ViewBag.Error != null)
+    {
+        <b class="alert-danger">@ViewBag.Error</b>
+    }
+    <h3>List Hypothecator</h3>
+    @foreach (var item in Model)
+    {
+
+        <fieldset>
+            <table class="table">
+                <tr>
+                    <td>Name:</td>
+                    <td>@Html.DisplayFor(modelItem => item.HypothecatorName)</td>
+                    <td>Sex:</td>
+                    <td>@Html.DisplayFor(modelItem => item.HypothecatorSex)</td>
+
+                </tr>
+                <tr>
+                    <td>Date of Birth:</td>
+                    <td>@Html.DisplayFor(modelItem => item.HypothecatorBirthDate)</td>
+                    <td>Nationality:</td>
+                    <td>@Html.DisplayFor(modelItem => item.HypothecatorNationality)</td>
+
+                </tr>
+                <tr>
+                    <td>Address:</td>
+                    <td>@Html.DisplayFor(modelItem => item.HypothecatorAddress)</td>
+                    <td>Village:</td>
+                    <td>@Html.DisplayFor(modelItem => item.HypothecatorVillage)</td>
+                </tr>
+                <tr>
+                    <td>Sangkat:</td>
+                    <td>@Html.DisplayFor(modelItem => item.HypothecatorSangkat)</td>
+                    <td>Khan:</td>
+                    <td>@Html.DisplayFor(modelItem => item.HypothecatorKhan)</td>
+                </tr>
+                <tr>
+                    <td>Capital:</td>
+                    <td>@Html.DisplayFor(modelItem => item.HypothecatorCapital)</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+
+                <tr>
+                    <td colspan="4" align="center">
+                        @Ajax.ActionLink("Delete", "Delete", "Hypothecators",
+                        new { hypothecatorName = item.HypothecatorName, hypothecatorNationality = item.HypothecatorNationality, isSaved = item.isSaved },
+                        new AjaxOptions
+                        {
+                            HttpMethod = "GET",
+                            InsertionMode = InsertionMode.Replace,
+                            UpdateTargetId = "ListHypothecator"
+                        },
+                        new { @class = "btn btn-danger" })
+                    </td>
+                </tr>
+            </table>
+        </fieldset>
+    }
+</div>
+
+
+
+

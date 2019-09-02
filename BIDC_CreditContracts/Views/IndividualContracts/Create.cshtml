@@ -1,0 +1,426 @@
+﻿@model BIDC_CreditContracts.Models.CreateIndividualContractEng
+
+@{
+    ViewBag.Title = "Create Individual Contract Eng";
+}
+
+<h2>Create Individual Contract</h2>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="col-md-12">
+            <ul class="col-md-11 nav nav-tabs">
+                <li id="itemhome" class="active"><a data-toggle="tab" href="#home">Contact</a></li>
+                <li id="item1"><a data-toggle="tab" href="#menu1">Approved</a></li>
+                <li id="item2"><a data-toggle="tab" href="#menu2">Guarantee</a></li>
+                <li id="item3"><a data-toggle="tab" href="#menu3">Other</a></li>
+            </ul>
+            <div class="col-md-offset-1">
+                <input type="submit" value="Create" class="btn btn-success" />
+            </div>
+        </div>
+
+        <div class="col-md-12 tab-content">
+
+            <!--Contact-->
+            <div id="home" class="tab-pane fade in active">
+                <br />
+                @Html.HiddenFor(model => model.Language)
+                @Html.HiddenFor(model => model.BranchID)
+                @Html.HiddenFor(model => model.NumberOfContract)
+                @Html.HiddenFor(model => model.BranchStandFor)
+                <div class="form-group">
+                    @Html.LabelFor(model => model.IndividualTypeID, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-4">
+                        @Html.DropDownListFor(model => model.IndividualType, Model.ContractTypeItems, "--- Choose contract type ---", htmlAttributes: new { @class = "form-control", @onchange = "ChangeContractType()" })
+                        @Html.ValidationMessageFor(model => model.IndividualType, "", new { @class = "text-danger" })
+                    </div>
+                    @Html.LabelFor(model => model.ContractDate, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-4">
+                        @Html.EditorFor(model => model.ContractDate, new { htmlAttributes = new { @class = "form-control datefield" } })
+                        @Html.ValidationMessageFor(model => model.ContractDate, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.ContractNo, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-4">
+                        @Html.EditorFor(model => model.ContractNo, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                        @Html.ValidationMessageFor(model => model.ContractNo, "", new { @class = "text-danger" })
+                    </div>
+                    @Html.LabelFor(model => model.ContractNoSecond, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-4">
+                        @Html.EditorFor(model => model.ContractNoSecond, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.ContractNoSecond, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.BankRepresented, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-4">
+                        @Html.EditorFor(model => model.BankRepresented, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.BankRepresented, "", new { @class = "text-danger" })
+                    </div>
+                    @Html.LabelFor(model => model.BankPosition, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-4">
+                        @Html.EditorFor(model => model.BankPosition, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.BankPosition, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.CustomerName, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-4">
+                        @Html.EditorFor(model => model.CustomerName, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.CustomerName, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.CustomerID, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-4">
+                        @Html.EditorFor(model => model.CustomerID, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.CustomerID, "", new { @class = "text-danger" })
+                    </div>
+                    @Html.LabelFor(model => model.CusIssuedDate, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-4">
+                        @Html.EditorFor(model => model.CusIssuedDate, new { htmlAttributes = new { @class = "form-control datefield" } })
+                        @Html.ValidationMessageFor(model => model.CusIssuedDate, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.CustAddress, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-4">
+                        @Html.EditorFor(model => model.CustAddress, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.CustAddress, "", new { @class = "text-danger" })
+                    </div>
+                    @Html.LabelFor(model => model.CustPhone, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-4">
+                        @Html.EditorFor(model => model.CustPhone, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.CustPhone, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+
+            <!--Conditions-->
+            <div id="menu1" class="tab-pane fade">
+                <br />
+                <div class="form-group">
+                    @Html.LabelFor(model => model.LoanAmount, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-4">
+                        @Html.EditorFor(model => model.LoanAmount, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.LoanAmount, "", new { @class = "text-danger" })
+                    </div>
+                    @Html.LabelFor(model => model.LoanTerm, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-4">
+                        @Html.EditorFor(model => model.LoanTerm, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.LoanTerm, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Purpose, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-4">
+                        @Html.DropDownListFor(model => model.Purpose, Model.PurposeTypeItems, "--- Choose purpose ---", htmlAttributes: new { @class = "form-control", @onchange = "ChangePurpose()" })
+                        @Html.ValidationMessageFor(model => model.Purpose, "", new { @class = "text-danger" })
+                    </div>
+                    @Html.LabelFor(model => model.OtherPurpose, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-4">
+                        @Html.EditorFor(model => model.OtherPurpose, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                        @Html.ValidationMessageFor(model => model.OtherPurpose, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.InterestRate, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-4">
+                        @Html.EditorFor(model => model.InterestRate, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.InterestRate, "", new { @class = "text-danger" })
+                    </div>
+                    @Html.LabelFor(model => model.InterestDate, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-4">
+                        @Html.EditorFor(model => model.InterestDate, new { htmlAttributes = new { @class = "form-control datefield" } })
+                        @Html.ValidationMessageFor(model => model.InterestDate, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    @Html.LabelFor(model => model.ProcessingFee, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-4">
+                        @Html.EditorFor(model => model.ProcessingFee, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.ProcessingFee, "", new { @class = "text-danger" })
+                    </div>
+                    @Html.LabelFor(model => model.WithdrawTerm, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-4">
+                        @Html.EditorFor(model => model.WithdrawTerm, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.WithdrawTerm, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.OriginalLoan, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-4">
+                        @Html.EditorFor(model => model.OriginalLoan, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.OriginalLoan, "", new { @class = "text-danger" })
+                    </div>
+                    @Html.LabelFor(model => model.PaymentInterest, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-4">
+                        @Html.EditorFor(model => model.PaymentInterest, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.PaymentInterest, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.PrincipalPayment, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-4">
+                        @Html.EditorFor(model => model.PrincipalPayment, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.PrincipalPayment, "", new { @class = "text-danger" })
+                    </div>
+                    @Html.LabelFor(model => model.AccountNo, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-4">
+                        @Html.EditorFor(model => model.AccountNo, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.AccountNo, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+
+            <!--Guarantee-->
+            <div id="menu2" class="tab-pane fade">
+                <br />
+                <fieldset>
+                    <legend>CarLoan</legend>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.CarLoanDescription, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-9">
+                            @Html.TextAreaFor(model => model.CarLoanDescription, new { @class = "form-control", @rows = "3" })
+                            @Html.ValidationMessageFor(model => model.CarLoanDescription, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.CarLoanType, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-4">
+                            @Html.EditorFor(model => model.CarLoanType, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.CarLoanType, "", new { @class = "text-danger" })
+                        </div>
+                        @Html.LabelFor(model => model.CardLoanValue, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-4">
+                            @Html.EditorFor(model => model.CardLoanValue, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.CardLoanValue, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="col-md-offset-6 col-md-6">
+                        <input type="button" value="Add" class="btn btn-success" onclick="AddCarLoan();" />
+                    </div>
+                    <div id="ListCarLoan">
+                        @Html.Partial("_CreateCarLoanEng", Model.listCarLoan)
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <legend>HousingLoan</legend>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.HosingLoanCollateralType, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-4">
+                            @Html.DropDownListFor(model => model.HosingLoanCollateralType, Model.PropertyTypeItems, htmlAttributes: new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.HosingLoanCollateralType, "", new { @class = "text-danger" })
+                        </div>
+                    </div>sql
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.HousingLoanDescription, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-9">
+                            @Html.TextAreaFor(model => model.HousingLoanDescription,new { @class = "form-control", @rows = "3" } )
+                            @Html.ValidationMessageFor(model => model.HousingLoanDescription, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.HousingLoanTotalSize, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-4">
+                            @Html.EditorFor(model => model.HousingLoanTotalSize, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.HousingLoanTotalSize, "", new { @class = "text-danger" })
+                        </div>
+                        @Html.LabelFor(model => model.HousingLoanValue, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-4">
+                            @Html.EditorFor(model => model.HousingLoanValue, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.HousingLoanValue, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="col-md-offset-6 col-md-6">
+                        <input type="button" value="Add" class="btn btn-success" onclick="AddHousingLoan();" />
+                    </div>
+                    <div id="ListHousingLoan">
+                        @Html.Partial("_CreateHousingLoanEng", Model.listHousingLoan)
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <legend>FixLoan</legend>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.FixLoanCollateralType, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-4">
+                            @Html.DropDownListFor(model => model.FixLoanCollateralType, Model.PropertyTypeItems, htmlAttributes: new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.FixLoanCollateralType, "", new { @class = "text-danger" })
+                        </div>
+                        @Html.LabelFor(model => model.FixLoanOwnership, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-4">
+                            @Html.EditorFor(model => model.FixLoanOwnership, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.FixLoanOwnership, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.FixLoanTitleDeedNumber, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-4">
+                            @Html.EditorFor(model => model.FixLoanTitleDeedNumber, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.FixLoanTitleDeedNumber, "", new { @class = "text-danger" })
+                        </div>
+                        @Html.LabelFor(model => model.FixLoanTotalSizeIn, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-4">
+                            @Html.EditorFor(model => model.FixLoanTotalSizeIn, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.FixLoanTotalSizeIn, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.FixLoanPricePerSqm, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-4">
+                            @Html.EditorFor(model => model.FixLoanPricePerSqm, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.FixLoanPricePerSqm, "", new { @class = "text-danger" })
+                        </div>
+                        @Html.LabelFor(model => model.FixLoanTotalPriceIn, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-4">
+                            @Html.EditorFor(model => model.FixLoanTotalPriceIn, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.FixLoanTotalPriceIn, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="col-md-offset-6 col-md-6">
+                        <input type="button" value="Add" class="btn btn-success" onclick="AddFixLoan();" />
+                    </div>
+                    <div id="ListFixLoan">
+                        @Html.Partial("_CreateFixLoanEng", Model.listFixLoan)
+                    </div>
+                </fieldset>
+            </div>
+
+            <!--Other-->
+            <div id="menu3" class="tab-pane fade">
+                <br />
+                <div class="form-group">
+                    @Html.LabelFor(model => model.OtherContract, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-9">
+                        @Html.TextAreaFor(model => model.OtherContract, new { @class = "form-control", @rows = "3" })
+                        @Html.ValidationMessageFor(model => model.OtherContract, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+}
+<br />
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+<script type="text/javascript">
+    function ChangeContractType() {
+        var contractID = $('#IndividualType').val();
+        if (contractID.length > 0) {
+            var year = new Date().getFullYear();
+            var branch = $('#BranchStandFor').val();
+            var numberContract = $('#NumberOfContract').val();
+            $('#ContractNo').val(numberContract + "/" + year + "/" + contractID + "/" + branch + "/");
+        }
+        else
+            $('#ContractNo').val("");
+    }
+
+    function ChangePurpose() {
+        var Purpose = $('#Purpose').val();
+        if (Purpose.length > 0) {
+            if (Purpose == "Other purpose") {
+                $('#OtherPurpose').prop('readonly', false);
+                $('#OtherPurpose').val("");
+            }
+            else {
+                $('#OtherPurpose').val(Purpose);
+                $('#OtherPurpose').prop('readonly', true);
+            }
+        }
+        else {
+            $('#OtherPurpose').prop('readonly', true);
+            $('#OtherPurpose').val("");
+        }
+    }
+
+    function AddCarLoan() {
+        var CarLoanDescription = document.getElementById('CarLoanDescription').value;
+        var CarLoanType = document.getElementById('CarLoanType').value;
+        var CardLoanValue = document.getElementById('CardLoanValue').value;
+        $.ajax({
+            url: "/CarLoan/Add",
+            async: false,
+            data: {
+                CarLoanDescription: CarLoanDescription,
+                CarLoanType: CarLoanType,
+                CardLoanValue: CardLoanValue
+            },
+            success: function (data) {
+                $("#ListCarLoan").html(data);
+            }
+        });
+        $('#CarLoanDescription').val("");
+        $('#CarLoanType').val("");
+        $('#CardLoanValue').val("");
+    }
+
+    function AddHousingLoan() {
+        var HosingLoanCollateralType = document.getElementById('HosingLoanCollateralType').value;
+        var HousingLoanDescription = document.getElementById('HousingLoanDescription').value;
+        var HousingLoanTotalSize = document.getElementById('HousingLoanTotalSize').value;
+        var HousingLoanValue = document.getElementById('HousingLoanValue').value;
+        $.ajax({
+            url: "/HousingLoan/Add",
+            async: false,
+            data: {
+                HosingLoanCollateralType: HosingLoanCollateralType,
+                HousingLoanDescription: HousingLoanDescription,
+                HousingLoanTotalSize: HousingLoanTotalSize,
+                HousingLoanValue: HousingLoanValue
+            },
+            success: function (data) {                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
+                $("#ListHousingLoan").html(data);
+            }
+        });
+        $('#HousingLoanDescription').val("");
+        $('#HousingLoanTotalSize').val("");
+        $('#HousingLoanValue').val("");
+    }
+
+    function AddFixLoan() {
+        var FixLoanCollateralType = document.getElementById('HosingLoanCollateralType').value;
+        var FixLoanOwnership = document.getElementById('FixLoanOwnership').value;
+        var FixLoanTitleDeedNumber = document.getElementById('FixLoanTitleDeedNumber').value;
+        var FixLoanTotalSizeIn = document.getElementById('FixLoanTotalSizeIn').value;
+        var FixLoanPricePerSqm = document.getElementById('FixLoanPricePerSqm').value;
+        var FixLoanTotalPriceIn = document.getElementById('FixLoanTotalPriceIn').value;
+        $.ajax({
+            url: "/FixLoan/Add",
+            async: false,
+            data: {
+                FixLoanCollateralType: FixLoanCollateralType,
+                FixLoanOwnership: FixLoanOwnership,
+                FixLoanTitleDeedNumber: FixLoanTitleDeedNumber,
+                FixLoanTotalSizeIn: FixLoanTotalSizeIn,
+                FixLoanPricePerSqm: FixLoanPricePerSqm,
+                FixLoanTotalPriceIn: FixLoanTotalPriceIn
+            },
+            success: function (data) {
+                $("#ListFixLoan").html(data);
+            }
+        });
+        $('#FixLoanOwnership').val("");
+        $('#FixLoanTitleDeedNumber').val("");
+        $('#FixLoanTotalSizeIn').val("");
+        $('#FixLoanPricePerSqm').val("");
+        $('#FixLoanTotalPriceIn').val("");
+    }
+</script>

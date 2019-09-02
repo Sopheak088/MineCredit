@@ -1,0 +1,118 @@
+﻿@model BIDC_CreditContracts.Models.CreateDecide
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete Decides</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div class="form-horizontal">
+    <div class="col-md-12">
+        <br />
+        <fieldset>
+            <table class="table">
+                <tr>
+                    <td class="tdtitle">@Html.DisplayNameFor(model => model.DecideCode)</td>
+                    <td class="tdcontent">@Html.DisplayFor(model => model.DecideCode)</td>
+                    <td class="tdtitle">@Html.DisplayNameFor(model => model.CreditProposalReport)</td>
+                    <td class="tdcontent">@Html.DisplayFor(model => model.CreditProposalReport)</td>
+                </tr>
+                <tr>
+                    <td class="tdtitle">@Html.DisplayNameFor(model => model.CreditProposalDate)</td>
+                    <td class="tdcontent">@Html.DisplayFor(model => model.CreditProposalDate)</td>
+                    <td class="tdtitle">@Html.DisplayNameFor(model => model.RequestBy)</td>
+                    <td class="tdcontent">@Html.DisplayFor(model => model.RequestBy)</td>
+                </tr>
+                <tr>
+                    <td class="tdtitle">@Html.DisplayNameFor(model => model.FollowBy)</td>
+                    <td colspan="3" class="tdcontent">@Html.DisplayFor(model => model.FollowBy)</td>
+                </tr>
+            </table>
+        </fieldset>
+
+        <fieldset>
+            <legend>Customer Overview</legend>
+            <table class="table">
+                <tr>
+                    <td class="tdtitle">@Html.DisplayNameFor(model => model.CustomerName)</td>
+                    <td class="tdcontent">@Html.DisplayFor(model => model.CustomerName)</td>
+                    <td class="tdtitle">@Html.DisplayNameFor(model => model.Cif)</td>
+                    <td class="tdcontent">@Html.DisplayFor(model => model.Cif)</td>
+                </tr>
+                <tr>
+                    <td class="tdtitle">@Html.DisplayNameFor(model => model.CustomerAddress)</td>
+                    <td class="tdcontent">@Html.DisplayFor(model => model.CustomerAddress)</td>
+                    <td class="tdtitle">@Html.DisplayNameFor(model => model.Representative)</td>
+                    <td class="tdcontent">@Html.DisplayFor(model => model.Representative)</td>
+                </tr>
+            </table>
+        </fieldset>
+
+        <fieldset>
+            <legend>Credit Content</legend>
+            <table class="table">
+                <tr>
+                    <td class="tdtitle">@Html.DisplayNameFor(model => model.LoanAmount)</td>
+                    <td class="tdcontent">@Model.LoanAmount.ToString("###,###,###.00")</td>
+                    <td class="tdtitle">@Html.DisplayNameFor(model => model.OutstandingLoan)</td>
+                    <td class="tdcontent">@Model.OutstandingLoan.ToString("###,###,###.00")</td>
+                </tr>
+                <tr>
+                    <td class="tdtitle">@Html.DisplayNameFor(model => model.OutstandingDate)</td>
+                    <td class="tdcontent">@Html.DisplayFor(model => model.OutstandingDate)</td>
+                    <td class="tdtitle">@Html.DisplayNameFor(model => model.Currency)</td>
+                    <td class="tdcontent">@Html.DisplayFor(model => model.Currency)</td>
+                </tr>
+                <tr>
+                    <td class="tdtitle">@Html.DisplayNameFor(model => model.NewLoanAmount)</td>
+                    <td class="tdcontent">@Model.NewLoanAmount.ToString("###,###,###.00")</td>
+                    <td class="tdtitle">@Html.DisplayNameFor(model => model.TypeOfLoan)</td>
+                    <td class="tdcontent">@Html.DisplayFor(model => model.TypeOfLoan)</td>
+                </tr>
+                <tr>
+                    <td class="tdtitle">@Html.DisplayNameFor(model => model.OtherPurpose)</td>
+                    <td class="tdcontent">@Html.DisplayFor(model => model.OtherPurpose)</td>
+                    <td class="tdtitle">@Html.DisplayNameFor(model => model.InterestRate)</td>
+                    <td class="tdcontent">@Html.DisplayFor(model => model.InterestRate)</td>
+                </tr>
+                <tr>
+                    <td class="tdtitle">@Html.DisplayNameFor(model => model.ProcessingFee)</td>
+                    <td class="tdcontent">@Html.DisplayFor(model => model.ProcessingFee)</td>
+                    <td class="tdtitle">@Html.DisplayNameFor(model => model.RepaymentMethod)</td>
+                    <td class="tdcontent">@Html.DisplayFor(model => model.RepaymentMethod)</td>
+                </tr>
+                <tr>
+                    <td class="tdtitle">@Html.DisplayNameFor(model => model.DisbursementTime)</td>
+                    <td class="tdcontent">@Html.DisplayFor(model => model.DisbursementTime)</td>
+                    <td class="tdtitle">@Html.DisplayNameFor(model => model.BoardManagement)</td>
+                    <td class="tdcontent">@Html.DisplayFor(model => model.BoardManagement)</td>
+                </tr>
+            </table>
+        </fieldset>
+        <fieldset>
+            <legend>Condition</legend>
+            <table>
+                <tr>
+                    <td class="tdtitle">@Html.DisplayNameFor(model => model.Condition)</td>
+                    <td colspan="3" class="tdcontent">@Html.DisplayFor(model => model.Condition)</td>
+                </tr>
+                <tr>
+                    <td class="tdtitle">@Html.DisplayNameFor(model => model.OtherCondition)</td>
+                    <td colspan="3" class="tdcontent">@Html.DisplayFor(model => model.OtherCondition)</td>
+                </tr>
+            </table>
+        </fieldset>
+    </div>
+    
+</div>
+<div>
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-danger" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

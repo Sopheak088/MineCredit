@@ -1,0 +1,46 @@
+﻿@model IEnumerable<BIDC_CreditContracts.Models.DebtorKhmer>
+
+<div id="ListDebtor">
+    <h3>List Debtor</h3>
+    @foreach (var item in Model)
+    {
+        <fieldset>
+            <table class="table">
+                <tr>
+                    <td class="tdtitle">@Html.LabelFor(modelItem => item.DebtorName)</td>
+                    <td>@Html.DisplayFor(modelItem => item.DebtorName)</td>
+                    <td class="tdtitle">@Html.LabelFor(modelItem => item.DebtorSex)</td>
+                    <td>@Html.DisplayFor(modelItem => item.DebtorSex)</td>
+
+                </tr>
+                <tr>
+                    <td class="tdtitle">@Html.LabelFor(modelItem => item.DebtorBirthDate)</td>
+                    <td>@Html.DisplayFor(modelItem => item.DebtorBirthDate)</td>
+                    <td class="tdtitle">@Html.LabelFor(modelItem => item.DebtorNationality)</td>
+                    <td>@Html.DisplayFor(modelItem => item.DebtorNationality)</td>
+
+                </tr>
+                <tr>
+                    <td class="tdtitle">@Html.LabelFor(modelItem => item.DebtorAddress)</td>
+                    <td>@Html.DisplayFor(modelItem => item.DebtorAddress)</td>
+                    <td class="tdtitle">@Html.LabelFor(modelItem => item.DebtorVillage)</td>
+                    <td>@Html.DisplayFor(modelItem => item.DebtorVillage)</td>
+                </tr>
+                <tr>
+                    <td class="tdtitle">@Html.LabelFor(modelItem => item.DebtorSangkat)</td>
+                    <td>@Html.DisplayFor(modelItem => item.DebtorSangkat)</td>
+                    <td class="tdtitle">@Html.LabelFor(modelItem => item.DebtorKhan)</td>
+                    <td>@Html.DisplayFor(modelItem => item.DebtorKhan)</td>
+                </tr>
+                <tr>
+                    <td class="tdtitle">@Html.LabelFor(modelItem => item.DebtorCapital)</td>
+                    <td>@Html.DisplayFor(modelItem => item.DebtorCapital)</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table>
+        </fieldset>
+    }
+</div>
+
+

@@ -1,0 +1,36 @@
+﻿@model IEnumerable<BIDC_CreditContracts.Models.PropertyView>
+
+<div id="ListProperty">
+    <h3>List Property</h3>
+    @foreach (var item in Model)
+    {
+        <fieldset>
+            <table class="table">
+                <tr>
+                    <td class="tdtitle">@Html.LabelFor(modelItem => item.TypeOfProperty)</td>
+                    <td>@Html.DisplayFor(modelItem => item.TypeOfProperty)</td>
+                    <td class="tdtitle">@Html.LabelFor(modelItem => item.Ownership)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Ownership)</td>
+                    
+                </tr>
+                <tr>
+                    <td class="tdtitle">@Html.LabelFor(modelItem => item.Pacelnumber)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Pacelnumber)</td>
+                    <td class="tdtitle">@Html.LabelFor(modelItem => item.TitleNumber)</td>
+                    <td>@Html.DisplayFor(modelItem => item.TitleNumber)</td>
+                    
+                </tr>
+                <tr>
+                    <td class="tdtitle">@Html.LabelFor(modelItem => item.TotalSize)</td>
+                    <td>@Html.DisplayFor(modelItem => item.TotalSize)</td>
+                    <td class="tdtitle">@Html.LabelFor(modelItem => item.Location)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Location)</td>
+                </tr>
+                
+            </table>
+        </fieldset>
+    }
+</div>
+
+
+

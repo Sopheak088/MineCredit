@@ -1,0 +1,42 @@
+﻿@model IEnumerable<BIDC_CreditContracts.Models.SecurityCreatorKhmer>
+
+<div id="ListSecurityCreator">
+    <h3>List Security Creator</h3>
+    @foreach (var item in Model)
+    {
+        <fieldset>
+            <table class="table">
+                <tr>
+                    <td class="tdtitle">@Html.LabelFor(modelItem => item.Name)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Name)</td>
+                    <td class="tdtitle">@Html.LabelFor(modelItem => item.IDNo)</td>
+                    <td>@Html.DisplayFor(modelItem => item.IDNo)</td>
+
+                </tr>
+                <tr>
+                    <td class="tdtitle">@Html.LabelFor(modelItem => item.IssuedDate)</td>
+                    <td>@Html.DisplayFor(modelItem => item.IssuedDate)</td>
+                    <td class="tdtitle">@Html.LabelFor(modelItem => item.IssuedBy)</td>
+                    <td>@Html.DisplayFor(modelItem => item.IssuedBy)</td>
+
+                </tr>
+                <tr>
+                    <td class="tdtitle">@Html.LabelFor(modelItem => item.Address)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Address)</td>
+                    <td class="tdtitle">@Html.LabelFor(modelItem => item.Telephone)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Telephone)</td>
+                </tr>
+                <tr>
+                    <td class="tdtitle">@Html.LabelFor(modelItem => item.Email)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Email)</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table>
+        </fieldset>
+    }
+</div>
+
+
+
+

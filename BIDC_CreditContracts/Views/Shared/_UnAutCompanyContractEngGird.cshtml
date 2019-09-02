@@ -1,0 +1,146 @@
+﻿@model IEnumerable<BIDC_CreditContracts.Models.Contract>
+@functions
+{
+    public string GenerateLinks(dynamic item)
+    {
+        MembershipUser user = Membership.GetUser();
+        string[] roles = Roles.GetRolesForUser(user.UserName);
+        string result = string.Empty;
+        if (roles.Contains("Officer"))
+        {
+            result += Html.ActionLink(" ", "GenerateDraftContract", "Contracts",
+                                        new
+                                        {
+                                            id = item.ContractID
+                                        },
+                                        new { @class = "print-image-link", @title = "Print", @target = "_blank" }
+
+                                        ).ToString();
+            
+            result += "&nbsp&nbsp&nbsp";
+            result += Html.ActionLink(" ", "Edit", "Contracts",
+                                   new
+                                   {
+                                       id = item.ContractID
+                                   },
+                                   new { @class = "edit-image-link", @title = "Edit" }
+                                   ).ToString();
+
+            result += "&nbsp&nbsp&nbsp";
+            result += Html.ActionLink(" ", "Delete", "Contracts",
+                                   new
+                                   {
+                                       id = item.ContractID
+                                   },
+                                   new { @class = "delete-image-link", @title = "Delete" }
+                                   ).ToString();
+
+        }
+        else if (roles.Contains("Deputy"))
+        {
+            result += Html.ActionLink(" ", "GenerateDraftContract", "Contracts",
+                                        new
+                                        {
+                                            id = item.ContractID
+                                        },
+                                        new { @class = "print-image-link", @title = "Print", @target = "_blank" }
+
+                                        ).ToString();
+            
+            result += "&nbsp&nbsp&nbsp";
+            result += Html.ActionLink(" ", "Authorise", "Contracts",
+                                   new
+                                   {
+                                       id = item.ContractID
+                                   },
+                                   new { @class = "authorise-image-link", @title = "Authorise" }
+                                   ).ToString();
+
+            result += "&nbsp&nbsp&nbsp";
+            result += Html.ActionLink(" ", "Delete", "Contracts",
+                                   new
+                                   {
+                                       id = item.ContractID
+                                   },
+                                   new { @class = "delete-image-link", @title = "Delete" }
+                                   ).ToString();
+        }
+        else if (roles.Contains("Admin"))
+        {
+            result += Html.ActionLink(" ", "GenerateDraftContract", "Contracts",
+                                        new
+                                        {
+                                            id = item.ContractID
+                                        },
+                                        new { @class = "print-image-link", @title = "Print", @target = "_blank" }
+
+                                        ).ToString();
+            
+            result += "&nbsp&nbsp&nbsp";
+            //result += Html.ActionLink(" ", "Details", "Contracts",
+            //                       new
+            //                       {
+            //                           id = item.ContractID
+            //                       },
+            //                       new { @class = "details-image-link", @title = "Details" }
+            //                       ).ToString();
+
+            //result += "&nbsp&nbsp&nbsp";
+
+            result += Html.ActionLink(" ", "Authorise", "Contracts",
+                                   new
+                                   {
+                                       id = item.ContractID
+                                   },
+                                   new { @class = "authorise-image-link", @title = "Authorise" }
+                                   ).ToString();
+
+            result += "&nbsp&nbsp&nbsp";
+
+            result += Html.ActionLink(" ", "Edit", "Contracts",
+                                   new
+                                   {
+                                       id = item.ContractID
+                                   },
+                                   new { @class = "edit-image-link", @title = "Edit" }
+                                   ).ToString();
+
+            result += "&nbsp&nbsp&nbsp";
+
+            result += Html.ActionLink(" ", "Delete", "Contracts",
+                                   new
+                                   {
+                                       id = item.ContractID
+                                   },
+                                   new { @class = "delete-image-link", @title = "Delete" }
+                                   ).ToString();
+        }
+
+        return result;
+    }
+}
+
+@{
+    var grid = new WebGrid(Model, rowsPerPage: 15, fieldNamePrefix: "sortSBs", pageFieldName: "pageSBs");
+    @grid.GetHtml(
+        tableStyle: "webgrid",
+        headerStyle: "webgrid-header",
+        footerStyle: "webgrid-footer",
+        alternatingRowStyle: "webgrid-alternating-row",
+        selectedRowStyle: "webgrid-selected-row",
+        rowStyle: "webgrid-row-style",
+        columns: grid.Columns(
+                        grid.Column(columnName: "ContractID", header: "No."),
+                        grid.Column(columnName: "ContractNo", header: "Contract No"),
+                        grid.Column(columnName: "TypeOfContract.TypeName", header: "Type"),
+                        grid.Column(columnName: "CompanyName", header: "Customer"),
+                        grid.Column(columnName: "LoanAmount", header: "Amount",
+                                        format: (item) => new HtmlString(item.LoanAmount.ToString("###,###,###.00")), style: "right-column"),
+                        grid.Column(columnName: "ContractDate", header: "Contract date",
+                                                format: (item) => new HtmlString(item.ContractDate.ToString("dd/MM/yyyy")), style: "right-column"),
+                        grid.Column(columnName: "BranchName", header: "Branch"),
+                        grid.Column(columnName: null, header: "Actions", format: (item) => new HtmlString(@GenerateLinks(item)), style: "center-column")
+        )
+    )
+}
+

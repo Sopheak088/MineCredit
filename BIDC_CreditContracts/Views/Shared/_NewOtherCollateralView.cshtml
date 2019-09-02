@@ -1,0 +1,41 @@
+﻿@model IEnumerable<BIDC_CreditContracts.Models.OtherCollateralView>
+
+<div id="ListOtherCollateral">
+    @if (ViewBag.Error != null)
+    {
+        <b class="alert-danger">@ViewBag.Error</b>
+    }
+    <h3>List Other Collateral</h3>
+    @foreach (var item in Model)
+    {
+
+        <fieldset>
+            <table class="table">
+                <tr>
+                    <td>@Html.LabelFor(modelItem => item.AssetInformation)</td>
+                    <td>@Html.DisplayFor(modelItem => item.AssetInformation)</td>
+                    <td>@Html.LabelFor(modelItem => item.IssuedBy)</td>
+                    <td>@Html.DisplayFor(modelItem => item.IssuedBy)</td>
+                </tr>
+                <tr>
+                    <td>@Html.LabelFor(modelItem => item.CollateralFor)</td>
+                    <td>@Html.DisplayFor(modelItem => item.CollateralFor)</td>
+                </tr>
+
+                <tr>
+                    <td colspan="4" align="center">
+                        @Ajax.ActionLink("Delete", "Delete", "OtherCollateral",
+                        new { AssetInformation = item.AssetInformation, IssuedBy = item.IssuedBy, isSaved = item.isSaved },
+                        new AjaxOptions
+                        {
+                            HttpMethod = "GET",
+                            InsertionMode = InsertionMode.Replace,
+                            UpdateTargetId = "ListOtherCollateral"
+                        },
+                        new { @class = "btn btn-danger" })
+                    </td>
+                </tr>
+            </table>
+        </fieldset>
+    }
+</div>

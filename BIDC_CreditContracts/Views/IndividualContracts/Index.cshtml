@@ -1,0 +1,159 @@
+﻿@model IEnumerable<BIDC_CreditContracts.Models.IndividualContract>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Branch.BranchName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ContractNo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ContractDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BankRepresented)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BankPosition)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CustomerName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CustomerID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CusIssuedDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CustAddress)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CustPhone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LoanAmount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Purpose)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LoanTerm)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.InterestRate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.InterestDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProcessingFee)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.WithdrawTerm)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OriginalLoan)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PaymentInterest)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Language)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FileName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IndividualContractType_ID)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Branch.BranchName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ContractNo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ContractDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BankRepresented)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BankPosition)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CustomerName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CustomerID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CusIssuedDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CustAddress)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CustPhone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LoanAmount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Purpose)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LoanTerm)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.InterestRate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.InterestDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProcessingFee)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.WithdrawTerm)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OriginalLoan)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PaymentInterest)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Language)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FileName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IndividualContractType_ID)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>

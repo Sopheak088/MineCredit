@@ -1,0 +1,117 @@
+﻿@model IEnumerable<BIDC_CreditContracts.Models.SecurityContract>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ContractNo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CreateDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CreditContract)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CreditContractDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cif)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CompanyName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BranchID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BranchName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BranchRepresented)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BranchPosition)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PropertyEvaluationDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SecurityAgreementNo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SecurityAgreementDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Language)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FileName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ContractNo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreateDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreditContract)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreditContractDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cif)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CompanyName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BranchID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BranchName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BranchRepresented)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BranchPosition)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PropertyEvaluationDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SecurityAgreementNo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SecurityAgreementDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Language)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FileName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>

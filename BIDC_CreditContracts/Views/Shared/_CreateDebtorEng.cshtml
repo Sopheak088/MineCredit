@@ -1,0 +1,68 @@
+﻿@model IEnumerable<BIDC_CreditContracts.Models.DebtorEng>
+
+<div id="ListDebtor">
+    @if (ViewBag.Error != null)
+    {
+        <b class="alert-danger">@ViewBag.Error</b>
+    }
+    <h3>List Debtor</h3>
+    @foreach (var item in Model)
+    {
+
+        <fieldset>
+            <table class="table">
+                <tr>
+                    <td>Name:</td>
+                    <td>@Html.DisplayFor(modelItem => item.DebtorName)</td>
+                    <td>Sex:</td>
+                    <td>@Html.DisplayFor(modelItem => item.DebtorSex)</td>
+
+                </tr>
+                <tr>
+                    <td>Date of Birth:</td>
+                    <td>@Html.DisplayFor(modelItem => item.DebtorBirthDate)</td>
+                    <td>Nationality:</td>
+                    <td>@Html.DisplayFor(modelItem => item.DebtorNationality)</td>
+
+                </tr>
+                <tr>
+                    <td>Address:</td>
+                    <td>@Html.DisplayFor(modelItem => item.DebtorAddress)</td>
+                    <td>Village:</td>
+                    <td>@Html.DisplayFor(modelItem => item.DebtorVillage)</td>
+                </tr>
+                <tr>
+                    <td>Sangkat:</td>
+                    <td>@Html.DisplayFor(modelItem => item.DebtorSangkat)</td>
+                    <td>Khan:</td>
+                    <td>@Html.DisplayFor(modelItem => item.DebtorKhan)</td>
+                </tr>
+                <tr>
+                    <td>Capital:</td>
+                    <td>@Html.DisplayFor(modelItem => item.DebtorCapital)</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+
+                <tr>
+                    <td colspan="4" align="center">
+                        @Ajax.ActionLink("Delete", "Delete", "Debtors",
+                        new { debtorName = item.DebtorName, debtorAddress = item.DebtorAddress, isSaved = item.isSaved },
+                        new AjaxOptions
+                        {
+                            HttpMethod = "GET",
+                            InsertionMode = InsertionMode.Replace,
+                            UpdateTargetId = "ListDebtor"
+                        },
+                        new { @class = "btn btn-danger" })
+                    </td>
+                </tr>
+            </table>
+        </fieldset>
+    }
+</div>
+
+
+
+
+

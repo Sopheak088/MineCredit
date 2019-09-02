@@ -1,0 +1,45 @@
+﻿@model IEnumerable<BIDC_CreditContracts.Models.HypothecatorKhmer>
+
+<div id="ListHypothecator">
+    <h3>List Hypothecator</h3>
+    @foreach (var item in Model)
+    {
+        <fieldset>
+            <table class="table">
+                <tr>
+                    <td class="tdtitle">@Html.LabelFor(modelItem => item.HypothecatorName)</td>
+                    <td>@Html.DisplayFor(modelItem => item.HypothecatorName)</td>
+                    <td class="tdtitle">@Html.LabelFor(modelItem => item.HypothecatorSex)</td>
+                    <td>@Html.DisplayFor(modelItem => item.HypothecatorSex)</td>
+
+                </tr>
+                <tr>
+                    <td class="tdtitle">@Html.LabelFor(modelItem => item.HypothecatorBirthDate)</td>
+                    <td>@Html.DisplayFor(modelItem => item.HypothecatorBirthDate)</td>
+                    <td class="tdtitle">@Html.LabelFor(modelItem => item.HypothecatorNationality)</td>
+                    <td>@Html.DisplayFor(modelItem => item.HypothecatorNationality)</td>
+
+                </tr>
+                <tr>
+                    <td class="tdtitle">@Html.LabelFor(modelItem => item.HypothecatorAddress)</td>
+                    <td>@Html.DisplayFor(modelItem => item.HypothecatorAddress)</td>
+                    <td class="tdtitle">@Html.LabelFor(modelItem => item.HypothecatorVillage)</td>
+                    <td>@Html.DisplayFor(modelItem => item.HypothecatorVillage)</td>
+                </tr>
+                <tr>
+                    <td class="tdtitle">@Html.LabelFor(modelItem => item.HypothecatorSangkat)</td>
+                    <td>@Html.DisplayFor(modelItem => item.HypothecatorSangkat)</td>
+                    <td class="tdtitle">@Html.LabelFor(modelItem => item.HypothecatorKhan)</td>
+                    <td>@Html.DisplayFor(modelItem => item.HypothecatorKhan)</td>
+                </tr>
+                <tr>
+                    <td class="tdtitle">@Html.LabelFor(modelItem => item.HypothecatorCapital)</td>
+                    <td>@Html.DisplayFor(modelItem => item.HypothecatorCapital)</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table>
+        </fieldset>
+    }
+</div>
+

@@ -1,0 +1,70 @@
+﻿
+<ul id="menu">
+    @{
+        if (@Request.IsAuthenticated)
+        {
+            MembershipUser user = Membership.GetUser();
+            string[] roles = Roles.GetRolesForUser(user.UserName);
+            if (roles.Contains("Officer"))
+            {
+                @*<li>@Html.ActionLink("Input Decide", "CreateStep1", "Decides")</li>*@
+                <li>@Html.ActionLink("Decide", "Index", "Decides")</li>
+                <li>@Html.ActionLink("Input Contract", "CreateContractStep1", "Contracts")</li>
+                <li>@Html.ActionLink("Company", "Index", "Contracts")</li>
+                <li>@Html.ActionLink("Authorise Company", "UnAutCompany", "Contracts")</li>
+                <li>@Html.ActionLink("Input Hypothec", "CreateStep1", "HypothecContracts")</li>
+                <li>@Html.ActionLink("Hypothec", "Index", "HypothecContracts")</li>
+                <li>@Html.ActionLink("Input Security", "CreateStep1", "SecurityContracts")</li>
+                <li>@Html.ActionLink("Security", "Index", "SecurityContracts")</li>
+            }
+            else if (roles.Contains("RMDOfficer"))
+            {
+                <li>@Html.ActionLink("Input Decide", "CreateStep1", "Decides")</li>
+                <li>@Html.ActionLink("Decide", "Index", "Decides")</li>
+            }
+            else if (roles.Contains("BranchOfficer"))
+            {
+                <li>@Html.ActionLink("Input Decide", "CreateStep1", "Decides")</li>
+                <li>@Html.ActionLink("Decide", "Index", "Decides")</li>
+                <li>@Html.ActionLink("Input Contract", "CreateContractStep1", "Contracts")</li>
+                <li>@Html.ActionLink("Company", "Index", "Contracts")</li>
+                <li>@Html.ActionLink("Authorise Company", "UnAutCompany", "Contracts")</li>
+                <li>@Html.ActionLink("Input Hypothec", "CreateStep1", "HypothecContracts")</li>
+                <li>@Html.ActionLink("Hypothec", "Index", "HypothecContracts")</li>
+                <li>@Html.ActionLink("Input Security", "CreateStep1", "SecurityContracts")</li>
+                <li>@Html.ActionLink("Security", "Index", "SecurityContracts")</li>
+            }
+            else if (roles.Contains("Deputy"))
+            {
+                <li>@Html.ActionLink("Company", "Index", "Contracts")</li>
+                <li>@Html.ActionLink("Authorise Company", "UnAutCompany", "Contracts")</li>
+                <li>@Html.ActionLink("Decide", "Index", "Decides")</li>
+                <li>@Html.ActionLink("Hypothec", "Index", "HypothecContracts")</li>
+                <li>@Html.ActionLink("Security", "Index", "SecurityContracts")</li>
+            }
+            else if (roles.Contains("Admin"))
+            {
+                <li>@Html.ActionLink("Input Decide", "CreateStep1", "Decides")</li>
+                <li>@Html.ActionLink("Decide", "Index", "Decides")</li>
+                <li>@Html.ActionLink("Company", "Index", "Contracts")</li>
+                <li>@Html.ActionLink("Input Contract", "CreateContractStep1", "Contracts")</li>
+                <li>@Html.ActionLink("Authorise Company", "UnAutCompany", "Contracts")</li>
+                <li>@Html.ActionLink("Input Hypothec", "CreateStep1", "HypothecContracts")</li>
+                <li>@Html.ActionLink("Hypothec", "Index", "HypothecContracts")</li>
+                <li>@Html.ActionLink("Input Security", "CreateStep1", "SecurityContracts")</li>
+                <li>@Html.ActionLink("Security", "Index", "SecurityContracts")</li>
+                @*<li>@Html.ActionLink("Input Hypothec", "CreateStep1", "HypothecContracts")</li>
+                <li>@Html.ActionLink("Input Security", "CreateStep1", "SecurityContracts")</li>*@
+                @*<li>@Html.ActionLink("CompanyType", "Index", "TypeOfContracts")</li>
+                <li>@Html.ActionLink("IndividualType", "Index", "IndividualContractTypes")</li>*@
+                @*<li>@Html.ActionLink("Property", "Index", "TypeOfProperties")</li>*@
+                <li>@Html.ActionLink("Branch", "Index", "Branches")</li>
+            }
+            <li>@Html.ActionLink("Log Off", "LogOff", "Account")</li>
+        }
+        else
+        {
+            <li>@Html.ActionLink("Log On", "LogOn", "Account")</li>
+        }
+    }
+</ul>

@@ -1,0 +1,216 @@
+﻿@model BIDC_CreditContracts.Models.CreateCompanyContractKhmer
+@{
+    ViewBag.Title = "AuthoriseKhmer";
+}
+
+<h2>Authorise Company contract</h2>
+<h3>Are you sure you want to authorise this?</h3>
+<div class="form-horizontal">
+    <ul class="nav nav-tabs">
+        <li id="itemhome" class="active"><a data-toggle="tab" href="#home">Approved</a></li>
+        <li id="item1"><a data-toggle="tab" href="#menu1">Customer</a></li>
+        <li id="item2"><a data-toggle="tab" href="#menu2">Security</a></li>
+        <li id="item3"><a data-toggle="tab" href="#menu3">Conditions & Fee</a></li>
+        <li id="item4"><a data-toggle="tab" href="#menu4">Contact</a></li>
+        <li id="item5"><a data-toggle="tab" href="#menu5">NumberOfContract</a></li>
+    </ul>
+    <div class="tab-content">
+        <!--Approved Loan-->
+        <div id="home" class="tab-pane fade in active">
+            <br />
+            <table class="table">
+                <tr>
+                    <td class="tdtitle">@Html.LabelFor(model => model.TypeOfContract)</td>
+                    <td class="tdcontent">@Html.DisplayFor(model => model.TypeOfContract)</td>
+                    <td class="tdtitle">@Html.LabelFor(model => model.ContractNo)</td>
+                    <td class="tdcontent">@Html.DisplayFor(model => model.ContractNo)</td>
+                </tr>
+                <tr>
+                    <td class="tdtitle">@Html.LabelFor(model => model.LoanAmount)</td>
+                    <td class="tdcontent">@Model.LoanAmount.ToString("###,###,###.00")</td>
+                    <td class="tdtitle">@Html.LabelFor(model => model.LoanCurrency)</td>
+                    <td class="tdcontent">@Html.DisplayFor(model => model.LoanCurrency)</td>
+
+                </tr>
+                <tr>
+                    <td class="tdtitle">@Html.LabelFor(model => model.ContractDate)</td>
+                    <td class="tdcontent">@Html.DisplayFor(model => model.ContractDate)</td>
+                    <td class="tdtitle">@Html.LabelFor(model => model.ApplicationDate)</td>
+                    <td class="tdcontent">@Html.DisplayFor(model => model.ApplicationDate)</td>
+                </tr>
+                <tr>
+                    <td class="tdtitle">@Html.LabelFor(model => model.InterestRate)</td>
+                    <td class="tdcontent">@Html.DisplayFor(model => model.InterestRate)</td>
+                    <td class="tdtitle">@Html.LabelFor(model => model.Term)</td>
+                    <td class="tdcontent">@Html.DisplayFor(model => model.Term)</td>
+                </tr>
+                <tr>
+                    <td class="tdtitle">@Html.LabelFor(model => model.ProcessingFee)</td>
+                    <td class="tdcontent">@Html.DisplayFor(model => model.ProcessingFee)</td>
+                    <td class="tdtitle">@Html.LabelFor(model => model.Purpose)</td>
+                    <td class="tdcontent">@Html.DisplayFor(model => model.Purpose)</td>
+                </tr>
+                <tr>
+                    <td class="tdtitle">@Html.LabelFor(model => model.GracePeriod)</td>
+                    <td class="tdcontent">@Html.DisplayFor(model => model.GracePeriod)</td>
+                    <td class="tdtitle">@Html.LabelFor(model => model.OtherPurpose)</td>
+                    <td class="tdcontent">@Html.DisplayFor(model => model.OtherPurpose)</td>
+                </tr>
+                <tr>
+                    <td class="tdtitle">@Html.LabelFor(model => model.RepaymentPrinciple)</td>
+                    <td class="tdcontent">@Html.DisplayFor(model => model.RepaymentPrinciple)</td>
+                    <td class="tdtitle">@Html.LabelFor(model => model.RepaymentInterest)</td>
+                    <td class="tdcontent">@Html.DisplayFor(model => model.RepaymentInterest)</td>
+                </tr>
+            </table>
+        </div>
+
+        <!--Customer-->
+        <div id="menu1" class="tab-pane fade">
+            <br />
+            <table class="table">
+                <tr>
+                    <td class="tdtitle">@Html.LabelFor(model => model.CompanyName)</td>
+                    <td class="tdcontent">@Html.DisplayFor(model => model.CompanyName)</td>
+                    <td class="tdtitle">@Html.LabelFor(model => model.TypeOfCompany)</td>
+                    <td class="tdcontent">@Html.DisplayFor(model => model.TypeOfCompany)</td>
+                </tr>
+                <tr>
+                    <td class="tdtitle">@Html.LabelFor(model => model.RegistrationNo)</td>
+                    <td class="tdcontent">@Html.DisplayFor(model => model.RegistrationNo)</td>
+                    <td class="tdtitle">@Html.LabelFor(model => model.RegistrationDate)</td>
+                    <td class="tdcontent">@Html.DisplayFor(model => model.RegistrationDate)</td>
+                </tr>
+                <tr>
+                    <td class="tdtitle">@Html.LabelFor(model => model.CompanyAddress)</td>
+                    <td class="tdcontent">@Html.DisplayFor(model => model.CompanyAddress)</td>
+                    <td class="tdtitle">@Html.LabelFor(model => model.CompanyTelephone)</td>
+                    <td class="tdcontent">@Html.DisplayFor(model => model.CompanyTelephone)</td>
+                </tr>
+                <tr>
+                    <td class="tdtitle">@Html.LabelFor(model => model.CompanyEmail)</td>
+                    <td class="tdcontent">@Html.DisplayFor(model => model.CompanyEmail)</td>
+                    <td class="tdtitle">@Html.LabelFor(model => model.CompanyDirector)</td>
+                    <td class="tdcontent">@Html.DisplayFor(model => model.CompanyDirector)</td>
+                </tr>
+                <tr>
+                    <td class="tdtitle">@Html.LabelFor(model => model.CompanyPosition)</td>
+                    <td class="tdcontent">@Html.DisplayFor(model => model.CompanyPosition)</td>
+                </tr>
+            </table>
+
+        </div>
+
+        <!--Property-->
+        <div id="menu2" class="tab-pane fade">
+            <div id="ListHypothecatedProperty">
+                @Html.Partial("_DetailPropertyKhmer", Model.HypothecatedProperty)
+            </div>
+            <div id="ListGuarantor">
+                @Html.Partial("_DetailGuarantorKhmer", Model.Guarantor)
+            </div>
+            <div id="ListMortgageProperty">
+                @Html.Partial("_DetailMortgagePropertyKhmer", Model.MortgageProperty)
+            </div>
+        </div>
+
+        <!--Special Conditions and Fee-->
+        <div id="menu3" class="tab-pane fade">
+            <br />
+            <table class="table">
+                <tr>
+                    <td class="tdtitle">@Html.LabelFor(model => model.LoanWithdraw)</td>
+                    <td class="tdcontent">@Html.DisplayFor(model => model.LoanWithdraw)</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="tdtitle">@Html.LabelFor(model => model.OtherCondition)</td>
+                    <td class="tdcontent" colspan="3">@Html.DisplayFor(model => model.OtherCondition)</td>
+                </tr>
+                
+                <tr>
+                    <td class="tdtitle">@Html.LabelFor(model => model.LoanRestrucFee)</td>
+                    <td class="tdcontent">@Html.DisplayFor(model => model.LoanRestrucFee)</td>
+                    <td class="tdtitle">@Html.LabelFor(model => model.EarlySettleFee)</td>
+                    <td class="tdcontent">@Html.DisplayFor(model => model.EarlySettleFee)</td>
+                </tr>
+            </table>
+        </div>
+
+        <!--Contact-->
+        <div id="menu4" class="tab-pane fade">
+            <br />
+            <table class="table">
+                <tr>
+                    <td class="tdtitle">@Html.LabelFor(model => model.BranchDirector)</td>
+                    <td class="tdcontent">@Html.DisplayFor(model => model.BranchDirector)</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="tdtitle">@Html.LabelFor(model => model.BankContactPerson)</td>
+                    <td class="tdcontent">@Html.DisplayFor(model => model.BankContactPerson)</td>
+                    <td class="tdtitle">@Html.LabelFor(model => model.BankContactPosition)</td>
+                    <td class="tdcontent">@Html.DisplayFor(model => model.BankContactPosition)</td>
+                </tr>
+                <tr>
+                    <td class="tdtitle">@Html.LabelFor(model => model.BankContactPhone)</td>
+                    <td class="tdcontent">@Html.DisplayFor(model => model.BankContactPhone)</td>
+                    <td class="tdtitle">@Html.LabelFor(model => model.BankContactEmail)</td>
+                    <td class="tdcontent">@Html.DisplayFor(model => model.BankContactEmail)</td>
+                </tr>
+                <tr>
+                    <td class="tdtitle">@Html.LabelFor(model => model.BorrowerContactPerson)</td>
+                    <td class="tdcontent">@Html.DisplayFor(model => model.BorrowerContactPerson)</td>
+                    <td class="tdtitle">@Html.LabelFor(model => model.BorrowerContactPosition)</td>
+                    <td class="tdcontent">@Html.DisplayFor(model => model.BorrowerContactPosition)</td>
+                </tr>
+                <tr>
+                    <td class="tdtitle">@Html.LabelFor(model => model.BorrowerContactPhone)</td>
+                    <td class="tdcontent">@Html.DisplayFor(model => model.BorrowerContactPhone)</td>
+                    <td class="tdtitle">@Html.LabelFor(model => model.BorrowerContactEmail)</td>
+                    <td class="tdcontent">@Html.DisplayFor(model => model.BorrowerContactEmail)</td>
+                </tr>
+            </table>
+        </div>
+
+        <!--Language-->
+        <div id="menu5" class="tab-pane fade">
+            <br />
+            <table class="table">
+                <tr>
+                    <td class="tdtitle">@Html.LabelFor(model => model.NumberOfContractKH)</td>
+                    <td class="tdcontent">@Html.DisplayFor(model => model.NumberOfContractKH)</td>
+                    <td class="tdtitle">@Html.LabelFor(model => model.NumberOfContractEng)</td>
+                    <td class="tdcontent">@Html.DisplayFor(model => model.NumberOfContractEng)</td>
+                </tr>
+                <tr>
+                    <td class="tdtitle">@Html.LabelFor(model => model.NumberBankKeep)</td>
+                    <td class="tdcontent">@Html.DisplayFor(model => model.NumberBankKeep)</td>
+                    <td class="tdtitle">@Html.LabelFor(model => model.NumberCustomerKeep)</td>
+                    <td class="tdcontent">@Html.DisplayFor(model => model.NumberCustomerKeep)</td>
+                </tr>
+                <tr>
+                    <td class="tdtitle">@Html.LabelFor(model => model.NumberOtherKeep)</td>
+                    <td class="tdcontent">@Html.DisplayFor(model => model.NumberOtherKeep)</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table>
+        </div>
+
+    </div>
+
+</div>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-actions no-color">
+        <input type="submit" value="Authorise" class="btn btn-success" /> |
+        @Html.ActionLink("Back to List", "UnAutCompany", "", new { @class = "btn btn-info" }) |
+
+    </div>
+}
+

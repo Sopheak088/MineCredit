@@ -1,0 +1,101 @@
+﻿@model BIDC_CreditContracts.Models.SecurityContractEng
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete Security Contract</h2>
+<h3>Are you sure you want to delete this?</h3>
+<div class="form-horizontal">
+    <ul class="col-md-12 nav nav-tabs">
+        <li id="itemhome" class="active"><a data-toggle="tab" href="#home">Contract</a></li>
+        <li id="item1"><a data-toggle="tab" href="#menu1">Creator</a></li>
+        <li id="item2"><a data-toggle="tab" href="#menu2">Borrower</a></li>
+        
+    </ul>
+    <div class="tab-content">
+        <div id="home" class="tab-pane fade in active">
+            <br />
+            <table class="table">
+                <tr>
+                    <td class="tdtitle">@Html.LabelFor(model => model.ContractNo)</td>
+                    <td class="tdcontent">@Html.DisplayFor(model => model.ContractNo)</td>
+                    <td class="tdtitle">@Html.LabelFor(model => model.CreditContract)</td>
+                    <td class="tdcontent">@Html.DisplayFor(model => model.CreditContract)</td>
+                </tr>
+                <tr>
+                    <td class="tdtitle">@Html.LabelFor(model => model.CreditContractDate)</td>
+                    <td class="tdcontent">@Html.DisplayFor(model => model.CreditContractDate)</td>
+                    <td class="tdtitle">@Html.LabelFor(model => model.TypeOfLoanContract)</td>
+                    <td class="tdcontent">@Html.DisplayFor(model => model.TypeOfLoanContract)</td>
+                </tr>
+                <tr>
+                    <td class="tdtitle">@Html.LabelFor(model => model.BranchName)</td>
+                    <td class="tdcontent">@Html.DisplayFor(model => model.BranchName)</td>
+                    <td class="tdtitle">@Html.LabelFor(model => model.BranchRepresented)</td>
+                    <td class="tdcontent">@Html.DisplayFor(model => model.BranchRepresented)</td>
+                </tr>
+                <tr>
+                    <td class="tdtitle">@Html.LabelFor(model => model.BranchPosition)</td>
+                    <td class="tdcontent">@Html.DisplayFor(model => model.BranchPosition)</td>
+                    <td class="tdtitle">@Html.LabelFor(model => model.PropertyEvaluationDate)</td>
+                    <td class="tdcontent">@Html.DisplayFor(model => model.PropertyEvaluationDate)</td>
+                </tr>
+                <tr>
+                    <td class="tdtitle">@Html.LabelFor(model => model.SecurityAgreementNo)</td>
+                    <td class="tdcontent">@Html.DisplayFor(model => model.SecurityAgreementNo)</td>
+                    <td class="tdtitle">@Html.LabelFor(model => model.SecurityAgreementDate)</td>
+                    <td class="tdcontent">@Html.DisplayFor(model => model.SecurityAgreementNo)</td>
+                </tr>
+            </table>
+
+        </div>
+
+        <div id="menu1" class="tab-pane fade">
+            <br />
+            <br />
+            <div id="ListSecurityCreator">
+                @Html.Partial("_DetailSecurityCreatorEng", Model.listSecurityCreator)
+            </div>
+        </div>
+
+        <div id="menu2" class="tab-pane fade">
+            <br />
+            <table class="table">
+                <tr>
+                    <td class="tdtitle">@Html.LabelFor(model => model.Cif)</td>
+                    <td class="tdcontent">@Html.DisplayFor(model => model.Cif)</td>
+                    <td class="tdtitle">@Html.LabelFor(model => model.CompanyName)</td>
+                    <td class="tdcontent">@Html.DisplayFor(model => model.CompanyName)</td>
+                </tr>
+                <tr>
+                    <td class="tdtitle">@Html.LabelFor(model => model.RegistrationNo)</td>
+                    <td class="tdcontent">@Html.DisplayFor(model => model.RegistrationNo)</td>
+                    <td class="tdtitle">@Html.LabelFor(model => model.RegistrationDate)</td>
+                    <td class="tdcontent">@Html.DisplayFor(model => model.RegistrationDate)</td>
+                </tr>
+                <tr>
+                    <td class="tdtitle">@Html.LabelFor(model => model.CompanyAddress)</td>
+                    <td class="tdcontent">@Html.DisplayFor(model => model.CompanyAddress)</td>
+                    <td class="tdtitle">@Html.LabelFor(model => model.CompanyTelephone)</td>
+                    <td class="tdcontent">@Html.DisplayFor(model => model.CompanyTelephone)</td>
+                </tr>
+                <tr>
+                    <td class="tdtitle">@Html.LabelFor(model => model.CompanyDirector)</td>
+                    <td class="tdcontent">@Html.DisplayFor(model => model.CompanyDirector)</td>
+                    <td class="tdtitle">@Html.LabelFor(model => model.CompanyPosition)</td>
+                    <td class="tdcontent">@Html.DisplayFor(model => model.CompanyPosition)</td>
+                </tr>
+            </table>
+   
+        </div>
+
+    </div>
+</div>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="form-actions no-color">
+        <input type="submit" value="Delete" class="btn btn-danger" />
+    </div>
+}
+

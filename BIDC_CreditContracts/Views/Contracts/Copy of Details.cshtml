@@ -1,0 +1,250 @@
+﻿@model BIDC_CreditContracts.Models.Contract
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details of contract</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Branch.BranchName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Branch.BranchName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TypeOfContract.TypeName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TypeOfContract.TypeName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ContractNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ContractNo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ContractDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ContractDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CompanyName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CompanyName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TypeOfCompany)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TypeOfCompany)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RegistrationNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RegistrationNo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RegistrationDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RegistrationDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CompanyAddress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CompanyAddress)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CompanyTelephone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CompanyTelephone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CompanyFax)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CompanyFax)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CompanyEmail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CompanyEmail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CompanyWebsite)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CompanyWebsite)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CompanyDirector)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CompanyDirector)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LoanAmount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LoanAmount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.InterestRate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InterestRate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Term)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Term)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProcessingFee)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProcessingFee)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Purpose)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Purpose)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GracePeriod)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GracePeriod)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RepaymentPrinciple)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RepaymentPrinciple)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GuarantorNameOne)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GuarantorNameOne)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GuarantorPassportNoOne)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GuarantorPassportNoOne)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GuarantorPassportDateOne)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GuarantorPassportDateOne)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GuarantorNameTwo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GuarantorNameTwo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GuarantorPassportNoTwo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GuarantorPassportNoTwo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GuarantorPassportDateTwo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GuarantorPassportDateTwo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LoanWithdraw)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LoanWithdraw)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LegalFee)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LegalFee)
+        </dd>
+
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ContractID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

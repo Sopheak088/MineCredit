@@ -1,0 +1,48 @@
+﻿@model IEnumerable<BIDC_CreditContracts.Models.FixDepositViewKhmer>
+
+<div id="ListFixDepositKhmer">
+    @if (ViewBag.Error != null)
+    {
+        <b class="alert-danger">@ViewBag.Error</b>
+    }
+    <h3>List FixDeposit</h3>
+    @foreach (var item in Model)
+    {
+
+        <fieldset>
+            <table class="table">
+                <tr>
+                    <td>@Html.LabelFor(modelItem => item.Owner)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Owner)</td>
+                    <td>@Html.LabelFor(modelItem => item.IDNumber)</td>
+                    <td>@Html.DisplayFor(modelItem => item.IDNumber)</td>
+                </tr>
+                <tr>
+                    <td>@Html.LabelFor(modelItem => item.OpeningDate)</td>
+                    <td>@Html.DisplayFor(modelItem => item.OpeningDate)</td>
+                    <td>@Html.LabelFor(modelItem => item.TypeOfDeposit)</td>
+                    <td>@Html.DisplayFor(modelItem => item.TypeOfDeposit)</td>
+                    @*<td>@Html.LabelFor(modelItem => item.ExpiryDate)</td>
+                    <td>@Html.DisplayFor(modelItem => item.ExpiryDate)</td>*@
+                </tr>
+                <tr>
+                    <td colspan="4" align="center">
+                        @Ajax.ActionLink("Delete", "DeleteKhmer", "FixDeposits",
+                            new { owner = item.Owner, idNumber = item.IDNumber, isSaved = item.isSaved },
+                        new AjaxOptions
+                        {
+                            HttpMethod = "GET",
+                            InsertionMode = InsertionMode.Replace,
+                            UpdateTargetId = "ListFixDepositKhmer"
+                        },
+                        new { @class = "btn btn-danger" })
+                    </td>
+                </tr>
+            </table>
+        </fieldset>
+    }
+</div>
+
+
+
+

@@ -1,0 +1,45 @@
+﻿@model IEnumerable<BIDC_CreditContracts.Models.HousingLoanEnglish>
+
+<div id="ListHousingLoan">
+    @if (ViewBag.Error != null)
+    {
+        <b class="alert-danger">@ViewBag.Error</b>
+    }
+    <h3>List Housing Loan</h3>
+    @foreach (var item in Model)
+    {
+
+        <fieldset>
+            <table class="table">
+                <tr>
+                    <td>Type:</td>
+                    <td>@Html.DisplayFor(modelItem => item.Type)</td>
+                    <td>Description:</td>
+                    <td>@Html.DisplayFor(modelItem => item.Description)</td>
+                    
+                </tr>
+                <tr>
+                    <td>Total size:</td>
+                    <td>@Html.DisplayFor(modelItem => item.TotalSize)</td>
+                    <td>Value:</td>
+                    <td>@Html.DisplayFor(modelItem => item.Value)</td>
+                </tr>
+
+                <tr>
+                    <td colspan="4" align="center">
+                        @Ajax.ActionLink("Delete", "Delete", "HousingLoan",
+                        new { HousingDescription = item.Description, HousingSize = item.TotalSize, HousingValue = item.Value, isSaved = item.isSaved },
+                        new AjaxOptions
+                        {
+                            HttpMethod = "GET",
+                            InsertionMode = InsertionMode.Replace,
+                            UpdateTargetId = "ListHousingLoan"
+                        },
+                        new { @class = "btn btn-danger" })
+                    </td>
+                </tr>
+            </table>
+        </fieldset>
+    }
+</div>
+

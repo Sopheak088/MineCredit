@@ -1,0 +1,510 @@
+﻿@model BIDC_CreditContracts.Models.CreateHypothecContractEng
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit Hypothec Contract</h2>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="col-md-12">
+            <ul class="col-md-11 nav nav-tabs">
+                <li id="itemhome" class="active"><a data-toggle="tab" href="#home">Secured</a></li>
+                <li id="item1"><a data-toggle="tab" href="#menu1">Hypothecator</a></li>
+                <li id="item2"><a data-toggle="tab" href="#menu2">Debtor</a></li>
+                <li id="item3"><a data-toggle="tab" href="#menu3">Property</a></li>
+            </ul>
+            <div class="col-md-offset-1">
+                <input type="submit" value="Save" class="btn btn-success" />
+            </div>
+        </div>
+        <div class="col-md-12 tab-content">
+            <!--Hypothecator-->
+            <div id="home" class="tab-pane fade in active">
+                <br />
+                <div class="form-group">
+                    @*@Html.LabelFor(model => model.ContractNo, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-4">
+                        @Html.EditorFor(model => model.ContractNo, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                        @Html.ValidationMessageFor(model => model.ContractNo, "", new { @class = "text-danger" })
+                    </div>*@
+                    @Html.HiddenFor(model=>model.ID)
+                    @Html.HiddenFor(model => model.ContractNo)
+                    @Html.LabelFor(model => model.ContractNoSecond, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-4">
+                        @Html.EditorFor(model => model.ContractNoSecond, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                        @Html.ValidationMessageFor(model => model.ContractNoSecond, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.BranchID, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-4">
+                        @Html.DropDownListFor(model => model.BranchID, Model.BranchItems, htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.BranchID, "", new { @class = "text-danger" })
+                    </div>
+                    @Html.LabelFor(model => model.BranchDirector, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-4">
+                        @Html.EditorFor(model => model.BranchDirector, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.BranchDirector, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <fieldset>
+                    <br />
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.CreditContract, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-4">
+                            @Html.EditorFor(model => model.CreditContract, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.CreditContract, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.CreditContractDate, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-4">
+                            @Html.EditorFor(model => model.CreditContractDate, new { htmlAttributes = new { @class = "form-control date-picker" } })
+                            @Html.ValidationMessageFor(model => model.CreditContractDate, "", new { @class = "text-danger" })
+                        </div>
+                        @Html.LabelFor(model => model.TypeOfLoanContract, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-4">
+                            @Html.DropDownListFor(model => model.TypeOfLoanContract, Model.TypeLoanContractItems, htmlAttributes: new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.TypeOfLoanContract, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.CreditContractAmount, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-4">
+                            @Html.EditorFor(model => model.CreditContractAmount, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.CreditContractAmount, "", new { @class = "text-danger" })
+                        </div>
+                        @Html.LabelFor(model => model.Currency, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-4">
+                            @Html.DropDownListFor(model => model.Currency, Model.CCyItems, htmlAttributes: new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.Currency, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.CreditContractInterestRate, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-4">
+                            @Html.EditorFor(model => model.CreditContractInterestRate, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.CreditContractInterestRate, "", new { @class = "text-danger" })
+                        </div>
+                        @Html.LabelFor(model => model.Damages, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-4">
+                            @Html.EditorFor(model => model.Damages, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Damages, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <br />
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Cif, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-4">
+                            @Html.EditorFor(model => model.Cif, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Cif, "", new { @class = "text-danger" })
+                        </div>
+                        @Html.LabelFor(model => model.TypeOfCompanyID, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-4">
+                            @Html.DropDownListFor(model => model.TypeOfCompanyID, Model.CompanyItems, htmlAttributes: new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.TypeOfCompanyID, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.CompanyName, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-4">
+                            @Html.EditorFor(model => model.CompanyName, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.CompanyName, "", new { @class = "text-danger" })
+                        </div>
+                        @Html.LabelFor(model => model.CompanyRegistrationNo, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-4">
+                            @Html.EditorFor(model => model.CompanyRegistrationNo, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.CompanyRegistrationNo, "", new { @class = "text-danger" })
+                        </div>
+
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.CompanyAddress, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-4">
+                            @Html.EditorFor(model => model.CompanyAddress, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.CompanyAddress, "", new { @class = "text-danger" })
+                        </div>
+                        @Html.LabelFor(model => model.CompanyDirector, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-4">
+                            @Html.EditorFor(model => model.CompanyDirector, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.CompanyDirector, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </fieldset>
+
+                <div style="float:right">
+                    <input type="button" value="Next" class="btn btn-primary" onclick="SecuredNext();" />
+                </div>
+            </div>
+
+            <!--Hypothecator-->
+            <div id="menu1" class="tab-pane fade">
+                <br />
+                <div class="form-group">
+                    @Html.LabelFor(model => model.HypothecatorName, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-4">
+                        @Html.EditorFor(model => model.HypothecatorName, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.HypothecatorName, "", new { @class = "text-danger" })
+                    </div>
+                    @Html.LabelFor(model => model.HypothecatorSex, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-4">
+                        @Html.DropDownListFor(model => model.HypothecatorSex, Model.SexItems, htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.HypothecatorSex, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.HypothecatorBirthDate, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-4">
+                        @Html.EditorFor(model => model.HypothecatorBirthDate, new { htmlAttributes = new { @class = "form-control date-picker" } })
+                        @Html.ValidationMessageFor(model => model.HypothecatorBirthDate, "", new { @class = "text-danger" })
+                    </div>
+                    @Html.LabelFor(model => model.HypothecatorNationality, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-4">
+                        @Html.EditorFor(model => model.HypothecatorNationality, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.HypothecatorNationality, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.HypothecatorAddress, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-4">
+                        @Html.EditorFor(model => model.HypothecatorAddress, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.HypothecatorAddress, "", new { @class = "text-danger" })
+                    </div>
+                    @Html.LabelFor(model => model.HypothecatorVillage, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-4">
+                        @Html.EditorFor(model => model.HypothecatorVillage, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.HypothecatorVillage, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.HypothecatorSangkat, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-4">
+                        @Html.EditorFor(model => model.HypothecatorSangkat, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.HypothecatorSangkat, "", new { @class = "text-danger" })
+                    </div>
+                    @Html.LabelFor(model => model.HypothecatorKhan, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-4">
+                        @Html.EditorFor(model => model.HypothecatorKhan, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.HypothecatorKhan, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.HypothecatorCapital, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-4">
+                        @Html.EditorFor(model => model.HypothecatorCapital, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.HypothecatorCapital, "", new { @class = "text-danger" })
+                    </div>
+
+                </div>
+                <div class="col-md-offset-6 col-md-6">
+                    <input type="button" value="Add" class="btn btn-success" onclick="AddHypothecator();" />
+                </div>
+                <div id="ListHypothecator">
+                    @Html.Partial("_CreateHypothecatorEng", Model.listHypothecator)
+                </div>
+                <div style="float:right">
+                    <input type="button" value="Next" class="btn btn-primary" onclick="HypothecatorNext();" />
+                </div>
+                <div style="float:left">
+                    <input type="button" value="Previous" class="btn btn-info" onclick="HypothecatorBack();" />
+                </div>
+            </div>
+
+            <!--Debtor-->
+            <div id="menu2" class="tab-pane fade">
+                <br />
+                <div class="form-group">
+                    @Html.LabelFor(model => model.DebtorName, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-4">
+                        @Html.EditorFor(model => model.DebtorName, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.DebtorName, "", new { @class = "text-danger" })
+                    </div>
+                    @Html.LabelFor(model => model.DebtorBirthDate, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-4">
+                        @Html.EditorFor(model => model.DebtorBirthDate, new { htmlAttributes = new { @class = "form-control date-picker" } })
+                        @Html.ValidationMessageFor(model => model.DebtorBirthDate, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.DebtorNationality, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-4">
+                        @Html.EditorFor(model => model.DebtorNationality, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.DebtorNationality, "", new { @class = "text-danger" })
+                    </div>
+                    @Html.LabelFor(model => model.DebtorAddress, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-4">
+                        @Html.EditorFor(model => model.DebtorAddress, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.DebtorAddress, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                @*<div class="form-group">
+                        @Html.LabelFor(model => model.DebtorSangkat, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-4">
+                            @Html.EditorFor(model => model.DebtorSangkat, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.DebtorSangkat, "", new { @class = "text-danger" })
+                        </div>
+                        @Html.LabelFor(model => model.DebtorKhan, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-4">
+                            @Html.EditorFor(model => model.DebtorKhan, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.DebtorKhan, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.DebtorCapital, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-4">
+                            @Html.EditorFor(model => model.DebtorCapital, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.DebtorCapital, "", new { @class = "text-danger" })
+                        </div>
+                        @Html.LabelFor(model => model.DebtorVillage, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-4">
+                            @Html.EditorFor(model => model.DebtorVillage, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.DebtorVillage, "", new { @class = "text-danger" })
+                        </div>
+                    </div>*@
+                @*<div class="col-md-offset-6 col-md-6">
+                        <input type="button" value="Add" class="btn btn-success" onclick="AddDebtor();" />
+                    </div>
+                    <div id="ListDebtor">
+                        @Html.Partial("_CreateDebtorEng", Model.listDebtor)
+                    </div>*@
+                <div style="float:right">
+                    <input type="button" value="Next" class="btn btn-primary" onclick="DebtorNext();" />
+                </div>
+                <div style="float:left">
+                    <input type="button" value="Previous" class="btn btn-info" onclick="DebtorBack();" />
+                </div>
+            </div>
+
+            <!--Property-->
+            <div id="menu3" class="tab-pane fade">
+                <br />
+                <div class="form-group">
+                    @Html.LabelFor(model => model.TypeOfProperty, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-4">
+                        @Html.DropDownListFor(model => model.TypeOfProperty, Model.PropertyTypeItems, htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.TypeOfProperty, "", new { @class = "text-danger" })
+                    </div>
+                    @Html.LabelFor(model => model.Ownership, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-4">
+                        @Html.EditorFor(model => model.Ownership, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Ownership, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Pacelnumber, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-4">
+                        @Html.EditorFor(model => model.Pacelnumber, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Pacelnumber, "", new { @class = "text-danger" })
+                    </div>
+                    @Html.LabelFor(model => model.TitleNumber, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-4">
+                        @Html.EditorFor(model => model.TitleNumber, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.TitleNumber, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.TotalSize, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-4">
+                        @Html.EditorFor(model => model.TotalSize, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.TotalSize, "", new { @class = "text-danger" })
+                    </div>
+                    @Html.LabelFor(model => model.Location, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-4">
+                        @Html.EditorFor(model => model.Location, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Location, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="col-md-offset-6 col-md-6">
+                    <input type="button" value="Add" class="btn btn-success" onclick="AddProperty();" />
+                </div>
+                <div id="ListHypothecatedProperty">
+                    @Html.Partial("_CreatePropertyEng", Model.listProperty)
+                </div>
+                <div style="float:left">
+                    <input type="button" value="Previous" class="btn btn-info" onclick="PropertyBack();" />
+                </div>
+            </div>
+
+        </div>
+    </div>
+}
+
+<div>
+    @*@Html.ActionLink("Back to List", "Index")*@
+    <a href="#">.</a>
+</div>
+<script type="text/javascript">
+    function AddHypothecator()
+    {
+        var HypothecatorName = document.getElementById('HypothecatorName').value;
+        var HypothecatorSex = document.getElementById('HypothecatorSex').value;
+        var HypothecatorBirthDate = document.getElementById('HypothecatorBirthDate').value;
+        var HypothecatorNationality = document.getElementById('HypothecatorNationality').value;
+        var HypothecatorAddress = document.getElementById('HypothecatorAddress').value;
+        var HypothecatorVillage = document.getElementById('HypothecatorVillage').value;
+        var HypothecatorSangkat = document.getElementById('HypothecatorSangkat').value;
+        var HypothecatorKhan = document.getElementById('HypothecatorKhan').value;
+        var HypothecatorCapital = document.getElementById('HypothecatorCapital').value;
+        $.ajax({
+            url: "/Hypothecators/Add",
+            async: false,
+            data: {
+                HypothecatorName: HypothecatorName,
+                HypothecatorSex: HypothecatorSex,
+                HypothecatorBirthDate: HypothecatorBirthDate,
+                HypothecatorNationality: HypothecatorNationality,
+                HypothecatorAddress: HypothecatorAddress,
+                HypothecatorVillage: HypothecatorVillage,
+                HypothecatorSangkat: HypothecatorSangkat,
+                HypothecatorKhan: HypothecatorKhan,
+                HypothecatorCapital: HypothecatorCapital
+            },
+            success: function (data) {
+                $("#ListHypothecator").html(data);
+            }
+        });
+        $('#HypothecatorName').val("");
+        $('#HypothecatorNationality').val("");
+        $('#HypothecatorAddress').val("");
+        $('#HypothecatorVillage').val("");
+        $('#HypothecatorSangkat').val("");
+        $('#HypothecatorKhan').val("");
+        $('#HypothecatorCapital').val("");
+    }
+
+    function AddDebtor() {
+        var DebtorName = document.getElementById('DebtorName').value;
+        var DebtorSex = "";
+        var DebtorBirthDate = document.getElementById('DebtorBirthDate').value;
+        var DebtorNationality = document.getElementById('DebtorNationality').value;
+        var DebtorAddress = document.getElementById('DebtorAddress').value;
+        var DebtorVillage = "";
+        var DebtorSangkat = "";
+        var DebtorKhan = "";
+        var DebtorCapital = "";
+        $.ajax({
+            url: "/Debtors/Add",
+            async: false,
+            data: {
+                DebtorName: DebtorName,
+                DebtorSex: DebtorSex,
+                DebtorBirthDate: DebtorBirthDate,
+                DebtorNationality: DebtorNationality,
+                DebtorAddress: DebtorAddress,
+                DebtorVillage: DebtorVillage,
+                DebtorSangkat: DebtorSangkat,
+                DebtorKhan: DebtorKhan,
+                DebtorCapital: DebtorCapital
+            },
+            success: function (data) {
+                $("#ListDebtor").html(data);
+            }
+        });
+        $('#DebtorName').val("");
+        $('#DebtorNationality').val("");
+        $('#DebtorAddress').val("");
+        //$('#DebtorVillage').val("");
+        //$('#DebtorSangkat').val("");
+        //$('#DebtorKhan').val("");
+        //$('#DebtorCapital').val("");
+    }
+
+    function AddProperty() {
+        var TypeOfProperty = document.getElementById('TypeOfProperty').value;
+        var Ownership = document.getElementById('Ownership').value;
+        var Pacelnumber = document.getElementById('Pacelnumber').value;
+        var TitleNumber = document.getElementById('TitleNumber').value;
+        var Location = document.getElementById('Location').value;
+        var TotalSize = document.getElementById('TotalSize').value;
+        $.ajax({
+            url: "/Properties/Add",
+            async: false,
+            data: {
+                TypeOfProperty: TypeOfProperty,
+                Ownership: Ownership,
+                Pacelnumber: Pacelnumber,
+                TitleNumber: TitleNumber,
+                Location: Location,
+                TotalSize: TotalSize
+            },
+            success: function (data) {
+                $("#ListHypothecatedProperty").html(data);
+            }
+        });
+        $('#Ownership').val("");
+        $('#Pacelnumber').val("");
+        $('#TitleNumber').val("");
+        $('#Location').val("");
+        $('#TotalSize').val("");
+    }
+
+    function SecuredNext() {
+        $('#home').removeClass('active in');
+        $('#itemhome').removeClass('active');
+        $('#menu1').addClass('active in');
+        $('#item1').addClass('active');
+        $('#menu1').show();
+    }
+    function HypothecatorNext() {
+        $('#menu1').removeClass('active in');
+        $('#item1').removeClass('active');
+        $('#menu2').addClass('active in');
+        $('#item2').addClass('active');
+        $('#menu2').show();
+    }
+    function HypothecatorBack() {
+        $('#menu1').removeClass('active in');
+        $('#item1').removeClass('active');
+        $('#home').addClass('active in');
+        $('#itemhome').addClass('active');
+        $('#home').show();
+    }
+    function DebtorNext() {
+        $('#menu2').removeClass('active in');
+        $('#item2').removeClass('active');
+        $('#menu3').addClass('active in');
+        $('#item3').addClass('active');
+        $('#menu3').show();
+    }
+    function DebtorBack() {
+        $('#menu2').removeClass('active in');
+        $('#item2').removeClass('active');
+        $('#menu1').addClass('active in');
+        $('#item1').addClass('active');
+        $('#menu1').show();
+    }
+
+    function PropertyBack() {
+        $('#menu3').removeClass('active in');
+        $('#item3').removeClass('active');
+        $('#menu2').addClass('active in');
+        $('#item2').addClass('active');
+        $('#menu2').show();
+    }
+</script>
+
+<link href="~/Content/themes/base/jquery-ui.min.css" rel="stylesheet" />
+<script src="~/Scripts/jquery-1.12.4.min.js"></script>
+<script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
+<script type="text/javascript">
+            $(function () {
+                $(".date-picker").datepicker({
+                    dateFormat: 'dd-MM-yy',
+                    changeMonth: true,
+                    changeYear: true
+                });
+
+            });
+
+</script>
+
+

@@ -1,0 +1,44 @@
+﻿@model IEnumerable<BIDC_CreditContracts.Models.HypothecatorEng>
+
+<div id="ListHypothecator">
+    <h3>List Hypothecator</h3>
+    @foreach (var item in Model)
+    {
+        <fieldset>
+            <table class="table">
+                <tr>
+                    <td class="tdtitle">Name:</td>
+                    <td>@Html.DisplayFor(modelItem => item.HypothecatorName)</td>
+                    <td class="tdtitle">Sex:</td>
+                    <td>@Html.DisplayFor(modelItem => item.HypothecatorSex)</td>
+
+                </tr>
+                <tr>
+                    <td class="tdtitle">Date of birth:</td>
+                    <td>@Html.DisplayFor(modelItem => item.HypothecatorBirthDate)</td>
+                    <td class="tdtitle">Nationality:</td>
+                    <td>@Html.DisplayFor(modelItem => item.HypothecatorNationality)</td>
+
+                </tr>
+                <tr>
+                    <td class="tdtitle">Address:</td>
+                    <td>@Html.DisplayFor(modelItem => item.HypothecatorAddress)</td>
+                    <td class="tdtitle">Village:</td>
+                    <td>@Html.DisplayFor(modelItem => item.HypothecatorVillage)</td>
+                </tr>
+                <tr>
+                    <td class="tdtitle">Commune/Sangkat:</td>
+                    <td>@Html.DisplayFor(modelItem => item.HypothecatorSangkat)</td>
+                    <td class="tdtitle">District/Khan:</td>
+                    <td>@Html.DisplayFor(modelItem => item.HypothecatorKhan)</td>
+                </tr>
+                <tr>
+                    <td class="tdtitle">Capital/Province:</td>
+                    <td>@Html.DisplayFor(modelItem => item.HypothecatorCapital)</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table>
+        </fieldset>
+    }
+</div>

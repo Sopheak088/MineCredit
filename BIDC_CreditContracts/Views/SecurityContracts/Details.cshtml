@@ -1,0 +1,138 @@
+﻿@model BIDC_CreditContracts.Models.SecurityContract
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>SecurityContract</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ContractNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ContractNo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreateDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreateDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreditContract)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreditContract)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreditContractDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreditContractDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cif)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cif)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CompanyName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CompanyName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BranchID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BranchID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BranchName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BranchName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BranchRepresented)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BranchRepresented)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BranchPosition)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BranchPosition)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PropertyEvaluationDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PropertyEvaluationDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SecurityAgreementNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SecurityAgreementNo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SecurityAgreementDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SecurityAgreementDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Language)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Language)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FileName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FileName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

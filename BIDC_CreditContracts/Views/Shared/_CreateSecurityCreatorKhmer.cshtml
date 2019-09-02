@@ -1,0 +1,66 @@
+﻿@model IEnumerable<BIDC_CreditContracts.Models.SecurityCreatorKhmer>
+
+<div id="ListSecurityCreator">
+    @if (ViewBag.Error != null)
+    {
+        <b class="alert-danger">@ViewBag.Error</b>
+    }
+    <h3>List Security Creator</h3>
+    @foreach (var item in Model)
+    {
+
+        <fieldset>
+            <table class="table">
+                <tr>
+                    <td>@Html.LabelFor(modelItem => item.Name)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Name)</td>
+                    <td>@Html.LabelFor(modelItem => item.IDNo)</td>
+                    <td>@Html.DisplayFor(modelItem => item.IDNo)</td>
+
+                </tr>
+                <tr>
+                    <td>@Html.LabelFor(modelItem => item.IssuedDate)</td>
+                    <td>@Html.DisplayFor(modelItem => item.IssuedDate)</td>
+                    <td>@Html.LabelFor(modelItem => item.IssuedBy)</td>
+                    <td>@Html.DisplayFor(modelItem => item.IssuedBy)</td>
+
+                </tr>
+                <tr>
+                    <td>@Html.LabelFor(modelItem => item.Address)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Address)</td>
+                    <td>@Html.LabelFor(modelItem => item.Telephone)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Telephone)</td>
+                </tr>
+
+                <tr>
+                    <td>@Html.LabelFor(modelItem => item.Email)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Email)</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+
+                <tr>
+                    <td colspan="4" align="center">
+                        @Ajax.ActionLink("Delete", "DeleteKhmer", "SecurityCreators",
+                        new { name = item.Name, idNo = item.IDNo, isSaved = item.isSaved },
+                        new AjaxOptions
+                        {
+                            HttpMethod = "GET",
+                            InsertionMode = InsertionMode.Replace,
+                            UpdateTargetId = "ListSecurityCreator"
+                        },
+                        new { @class = "btn btn-danger" })
+                    </td>
+                </tr>
+            </table>
+        </fieldset>
+    }
+</div>
+
+
+
+
+
+
+
+

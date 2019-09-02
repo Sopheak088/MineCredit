@@ -1,0 +1,19 @@
+﻿@model BIDC_CreditContracts.Models.SearchContract
+@{
+    ViewBag.Title = "UnAuthorise Company";
+}
+
+<h2>The list of Unauthorise Company Contract</h2>
+<fieldset>
+    <legend>English</legend>
+    <div class="form-horizontal">
+        @Html.Partial("_UnAutCompanyContractEngGird", Model.listContractEng)
+    </div>
+</fieldset>
+<fieldset>
+    <legend>Khmer</legend>
+    <div class="form-horizontal">
+        @Html.Partial("_UnAutCompanyContractKhmerGird", Model.listContractKhmer)
+    </div>
+</fieldset>
+

@@ -1,0 +1,45 @@
+﻿@model IEnumerable<BIDC_CreditContracts.Models.GuarantorViewEng>
+
+<div id="ListOldGuarantor">
+    @if (ViewBag.Error != null)
+    {
+        <b class="alert-danger">@ViewBag.Error</b>
+    }
+    <h3>List Guarantor</h3>
+    @foreach (var item in Model)
+    {
+
+        <fieldset>
+            <table class="table">
+                <tr>
+                    <th>Guarantor name</th>
+                    <th>Card/ passport no</th>
+                    <th>Issued date</th>
+                </tr>
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.GuarantorName)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Passport)</td>
+                    <td>@Html.DisplayFor(modelItem => item.PassportDate)</td>
+
+                </tr>
+
+                <tr>
+                    <td colspan="3" align="center">
+                        @Ajax.ActionLink("Delete", "DeleteOld", "Guarantors",
+                        new { GuarantorName = item.GuarantorName, GuarantorPassportNo = item.Passport, isSaved = item.isSaved },
+                        new AjaxOptions
+                        {
+                            HttpMethod = "GET",
+                            InsertionMode = InsertionMode.Replace,
+                            UpdateTargetId = "ListOldGuarantor"
+                        },
+                        new { @class = "btn btn-danger" })
+                    </td>
+                </tr>
+            </table>
+        </fieldset>
+    }
+</div>
+
+
+

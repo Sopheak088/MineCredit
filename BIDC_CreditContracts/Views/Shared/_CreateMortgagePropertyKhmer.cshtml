@@ -1,0 +1,62 @@
+﻿@model IEnumerable<BIDC_CreditContracts.Models.MortgagePropertyViewKhmer>
+
+<div id="ListMortgagePropertyKhmer">
+    @if (ViewBag.Error != null)
+    {
+        <b class="alert-danger">@ViewBag.Error</b>
+    }
+    <h3>List Mortgage Property</h3>
+    @foreach (var item in Model)
+    {
+
+        <fieldset>
+            <table class="table">
+                <tr>
+                    <th>ពត៍មានចលនទ្រព្យ</th>
+                    <th>ស្លាកលេខ</th>
+                    <th>ចេញដោយ</th>
+                </tr>
+                <tr>
+                    <td>ឈ្មោះម៉ូដែល:</td>
+                    <td>@Html.DisplayFor(modelItem => item.PlateNumberName)</td>
+                    <td>@Html.DisplayFor(modelItem => item.IssuedByName)</td>
+                    
+                </tr>
+                <tr>
+                    <td>ឆ្នាំគំរូ:</td>
+                    <td>@Html.DisplayFor(modelItem => item.PlateNumberYear)</td>
+                    <td>@Html.DisplayFor(modelItem => item.IssuedByYear)</td>
+                </tr>
+                <tr>
+                    <td>លេខតួ:</td>
+                    <td>@Html.DisplayFor(modelItem => item.PlateChassis)</td>
+                    <td>@Html.DisplayFor(modelItem => item.IssuedByChassis)</td>
+                </tr>
+                <tr>
+                    <td>លេខម៉ាស៊ីន:</td>
+                    <td>@Html.DisplayFor(modelItem => item.PlateEngine)</td>
+                    <td>@Html.DisplayFor(modelItem => item.IssuedByEngine)</td>
+                </tr>
+                <tr>
+                    <td>លេខលតាប័ត្រ:</td>
+                    <td>@Html.DisplayFor(modelItem => item.PlateVignette)</td>
+                    <td>@Html.DisplayFor(modelItem => item.IssuedByVignette)</td>
+    
+                </tr>
+                <tr>
+                    <td colspan="3" align="center">
+                        @Ajax.ActionLink("Delete", "DeleteKhmer", "MortgageProperties",
+                        new { plateNumberName = item.PlateNumberName, issuedByName = item.IssuedByName, isSaved = item.isSaved },
+                        new AjaxOptions
+                        {
+                            HttpMethod = "GET",
+                            InsertionMode = InsertionMode.Replace,
+                            UpdateTargetId = "ListMortgagePropertyKhmer"
+                        },
+                        new { @class = "btn btn-danger" })
+                    </td>
+                </tr>
+            </table>
+        </fieldset>
+    }
+</div>

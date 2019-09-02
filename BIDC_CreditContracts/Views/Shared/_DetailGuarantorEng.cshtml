@@ -1,0 +1,21 @@
+﻿@model IEnumerable<BIDC_CreditContracts.Models.GuarantorViewEng>
+<div id="ListGuarantor">
+    <h3>List Guarantor</h3>
+    @foreach (var item in Model)
+    {
+        <fieldset>
+            <table class="table">
+                <tr>
+                    <th>Guarantor name</th>
+                    <th>Card/ passport no</th>
+                    <th>Issued date</th>
+                </tr>
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.GuarantorName)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Passport)</td>
+                    <td>@Html.DisplayFor(modelItem => item.PassportDate)</td>
+                </tr>
+            </table>
+        </fieldset>
+    }
+</div>

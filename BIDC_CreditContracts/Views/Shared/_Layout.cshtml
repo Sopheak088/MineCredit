@@ -1,0 +1,82 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - BIDC Credit Contract</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryui")
+    @*<script>
+  $( function() {
+      $(".datepicker").datepicker();
+  } );
+    </script>*@
+</head>
+<body>
+    @*<div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Contract", "Index", "Contracts")</li>
+                    <li>@Html.ActionLink("Branch", "Index", "Branches")</li>
+                    <li>@Html.ActionLink("TypeContract", "Index", "TypeOfContracts")</li>
+                    <li>@Html.ActionLink("ExportTest", "Export", "Contracts")</li>
+                </ul>
+                @Html.Partial("_LoginPartial")
+            </div>
+        </div>
+    </div>*@
+    <table style="width:100%;border:hidden">
+        <tr>
+            <td id="new-banner"></td>
+            <td class="Three-Dee">Credit Contract Application</td>
+        </tr>
+    </table>
+    <div id="navigation-bar">
+        <div id="navigation">
+            @Html.Partial("_LeftMenu")
+        </div>
+        <span id="title">@Html.Partial("_LogOnPartial")</span>
+    </div>
+    <div id="main-body">
+        <div id="main-content">
+            <div id="main" class="block-content">
+                @RenderBody()
+            </div>
+        </div>
+
+        <div id="footer">
+            Copyright © 2017 IT Department BIDC. All rights reserved.
+        </div>
+    </div>
+    <div id="domMessage" style="display:none;">
+        <br />
+        @*<img id="img" src="../../Content/themes/base/images/ajax-loader.gif"/>  *@
+        <img id="img" src="@Url.Content("~/Content/themes/base/images/ajax-loader.gif")" />
+        <h5>Processing. Please wait!</h5>
+    </div>
+    @*<div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>Copyright &copy; 2017 IT Department BIDC. All rights reserved.</p>
+        </footer>
+    </div>*@
+
+    
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/datetime")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
